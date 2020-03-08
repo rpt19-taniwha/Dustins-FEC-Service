@@ -6,10 +6,10 @@ Service Repo For FEC
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/rpt19-taniwha/iris-fec-service
+  - https://github.com/rpt19-taniwha/andy-service
+  - https://github.com/rpt19-taniwha/Dustins-FEC-Service
+  - https://github.com/rpt19-taniwha/mervin-fec-service
 
 ## Table of Contents
 
