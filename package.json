@@ -21,6 +21,7 @@
     "webpack-cli": "^3.3.11"
   },
   "scripts": {
+    "seed": "node ./database/seed.js",
     "start": "nodemon ./server/index.js"
   },
   "repository": {
