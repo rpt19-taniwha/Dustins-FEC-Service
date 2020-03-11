@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+// const profileImages = require('./dbHelpler.js/index.js');
 mongoose.connect('mongodb://localhost/Images', {useNewUrlParser: true, useUnifiedTopology: true});
 
 var db = mongoose.connection;
