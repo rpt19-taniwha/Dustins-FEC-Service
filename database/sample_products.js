@@ -1,4 +1,4 @@
-[
+var productList = [
   { productNumber: '95135', productName: 'Refined Granite Keyboard' },
   { productNumber: '19153', productName: 'Refined Concrete Chair' },
   { productNumber: '90572', productName: 'Small Rubber Computer' },
@@ -99,4 +99,6 @@
   { productNumber: '49248', productName: 'Fantastic Plastic Chicken' },
   { productNumber: '4774', productName: 'Ergonomic Granite Keyboard' },
   { productNumber: '78097', productName: 'Sleek Rubber Cheese' }
-]
+];
+
+module.exports = productList;
