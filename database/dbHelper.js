@@ -7,17 +7,17 @@ const createRandomQuantity = (max) => {
 
 const maxImagesPerProfile = 10;
 
-// const dataRequest = (url) => new Promise((resolve, reject) => {
-//   return https.get((url, response) => {
-//     const body = [];
-//     response.on('data', (chunk) => body.concat(chunk));
-//     response.on('end', () => resolve(JSON.stringify(body)));
-//   }).on('error', reject);
-// }).then((data) => {
-//   console.log('data', data);
-// }).catch((error) => {
-//   console.log('error fetching data', error);
-// });
+const getProfileUrls = (url) => new Promise((resolve, reject) => {
+  return https.get((url, response) => {
+    const body = [];
+    response.on('data', (chunk) => body.concat(chunk));
+    response.on('end', () => resolve(JSON.stringify(body)));
+  }).on('error', reject);
+}).then((data) => {
+  console.log('data', data);
+}).catch((error) => {
+  console.log('error fetching data', error);
+});
 
 const createRandomImageProfiles = (images, maxImgQuantity) => {
     const singleProfileImages = [];
@@ -40,4 +40,4 @@ const createRandomImageProfiles = (images, maxImgQuantity) => {
 
 
 
-module.exports = { profileImages: createRandomImageProfiles};
+module.exports = { profileImages: createRandomImageProfiles, getUrls: getProfileUrls};

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const {profileImages} = require('./dbHelper.js');
+const {profileImages, getUrls} = require('./dbHelper.js');
 console.log('profile images', typeof profileImages);
 const productList = require('./sample_products.js');
 mongoose.connect('mongodb://localhost/Images', {useNewUrlParser: true, useUnifiedTopology: true});
