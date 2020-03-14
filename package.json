@@ -1,16 +1,12 @@
 {
-  "name": "etsycloneimageservice",
-  "version": "0.0",
-  "description": "",
-  "author": "Dustin Ancalade",
-  "license": "",
-  "engines": {
-    "node": ">=6.13.0"
-  },
-  "scripts": {},
+  "name": "Dustins-FEC-Service",
+  "version": "1.0.0",
+  "description": "Service Repo For FEC name: etsycloneimageservice",
+  "main": "server/index.js",
   "dependencies": {
     "express": "^4.17.1",
     "mongoose": "^5.9.3",
+    "nodemon": "^2.0.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0"
   },
@@ -21,8 +17,24 @@
     "babel-loader": "^8.0.6",
     "css-loader": "^3.4.2",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
-    "nodemon": "^2.0.2",
     "webpack": "^4.42.0",
     "webpack-cli": "^3.3.11"
-  }
+  },
+  "scripts": {
+    "start": "nodemon ./server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rpt19-taniwha/Dustins-FEC-Service.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": ">=6.13.0"
+  },
+  "bugs": {
+    "url": "https://github.com/rpt19-taniwha/Dustins-FEC-Service/issues"
+  },
+  "homepage": "https://github.com/rpt19-taniwha/Dustins-FEC-Service#readme"
 }
