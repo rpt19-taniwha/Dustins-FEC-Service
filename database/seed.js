@@ -35,9 +35,11 @@ const productListWithImages = productList.map((product, k) => {
   finalProduct['Id'] = product['productNumber'];
   if (k === 0) {
     const sampleImgs = sampleImages(sampleUrls, 8);
+    console.log('sampleImgs', sampleImgs);
     finalProduct['imageUrls'] = sampleImgs;
   } else {
     const productImages = profileImages(imageUrls, 10);
+    // console.log('productImages', productImages);
     finalProduct['imageUrls'] = productImages;
   }
   console.log('finalProduct', finalProduct);
