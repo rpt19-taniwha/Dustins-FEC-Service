@@ -1,10 +1,14 @@
 const mongoose = require('mongoose');
-const {profileImages, getUrls} = require('./dbHelper.js');
-console.log('profile images', typeof profileImages);
+const {profileImages, sampleImages, createImageUrl} = require('./dbHelper.js');
 const productList = require('./sample_products.js');
+
 mongoose.connect('mongodb://localhost/Images', {useNewUrlParser: true, useUnifiedTopology: true});
 
 var db = mongoose.connection;
+const s3FolderUrl = 'https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/Fec+pictures/';
+const s3SampleUrl = 'https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/';
+const s3sampleImageQuantity = 8;
+const s3ImageQuantity = 31;
 
 db.on('error', console.error.bind(console, 'connection error:'));
 db.on('open', () => {
@@ -13,10 +17,31 @@ db.on('open', () => {
   });
 });
 
-const productListWithImages = productList.map((product) => {
-  const productImages = profileImages(['/image1', '/image2', '/image3', '/image4', '/image5', '/image6', '/image7', '/image8', '/image9', '/image10', '/image1', 'image11', '/image12', '/image13', '/image14', '/image15'], 10);
-  product['imageUrls'] = productImages;
-  return product;
+
+const productListWithImages = productList.map((product, k) => {
+  const imageUrls = [];
+  const sampleUrls = [];
+  const finalProduct = {};
+
+  for (let i = 0; i < s3ImageQuantity; i++) {
+    const url = createImageUrl(s3FolderUrl, 'image', i, '.jpg');
+    imageUrls.push(url);
+
+    if (i < s3sampleImageQuantity) {
+      const sampleUrl = createImageUrl(s3SampleUrl, 'pokenatomy', i, '.jpg');
+      sampleUrls.push(sampleUrl);
+    }
+  }
+  finalProduct['Id'] = product['productNumber'];
+  if (k === 0) {
+    const sampleImgs = sampleImages(sampleUrls, 8);
+    finalProduct['imageUrls'] = sampleImgs;
+  } else {
+    const productImages = profileImages(imageUrls, 10);
+    finalProduct['imageUrls'] = productImages;
+  }
+  console.log('finalProduct', finalProduct);
+  return finalProduct;
 });
 
 db.once('open', function() {
@@ -24,7 +49,6 @@ db.once('open', function() {
 
   var imageSchema = new mongoose.Schema({
     productId: String,
-    productName: String,
     imageUrls: {
       type: Array,
       default: undefined
