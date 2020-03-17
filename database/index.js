@@ -6,7 +6,7 @@ const db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error:'));
 
-db.images.findOne({'productId': "549504785"}, (callback) => {
+const sampleProductQuery = db.images.findOne(object, (callback) => {
   if (err) {
     callback(err, null);
   } else {
@@ -15,3 +15,5 @@ db.images.findOne({'productId': "549504785"}, (callback) => {
   db.close();
 });
 
+
+module.exports = {db, sampleProductQuery};
