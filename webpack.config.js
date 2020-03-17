@@ -7,6 +7,7 @@ console.log('clientDir', clientDir);
 module.exports = {
   mode: "development",
   entry: `${clientDir}/app.jsx`,
+
   output: {
     filename: "bundle.js",
     path: publicDir
