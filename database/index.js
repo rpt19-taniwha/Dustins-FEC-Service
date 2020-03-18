@@ -4,16 +4,34 @@ mongoose.connect('mongodb://localhost/Images', {useNewUrlParser: true, useUnifie
 
 const db = mongoose.connection;
 
-db.on('error', console.error.bind(console, 'connection error:'));
-
-const sampleProductQuery = db.images.findOne(object, (callback) => {
-  if (err) {
-    callback(err, null);
-  } else {
-    callback(null, sampleProduct);
+var imageSchema = new mongoose.Schema({
+  productId: String,
+  imageUrls: {
+    type: Array,
+    default: undefined
   }
-  db.close();
 });
 
+var Image = mongoose.model('Image', imageSchema);
 
-module.exports = {db, sampleProductQuery};
+db.on('error', console.error.bind(console, 'connection error:'));
+
+const productQuery = (object, callback) => {
+  Image.findOne(object, (err, product) => {
+    if (err) {
+      callback(err, null);
+      db.close();
+    } else {
+      console.log('product', product);
+      callback(null, product);
+      db.close();
+    }
+
+  });
+
+
+}
+
+
+
+module.exports = {db, productQuery};

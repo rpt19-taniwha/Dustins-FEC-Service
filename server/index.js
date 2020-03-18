@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-const {db, sampleProductQuery} = require('../database/index.js')
+const {db, productQuery} = require('../database/index.js')
 const port = 8000;
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
@@ -9,13 +9,14 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 
 
 
-app.get('/sampleProduct', (req, res) => {
-  sampleProductQuery({"productNumber": "549504785"}, (err, sampleProduct) => {
+app.get('/product/:productNumber', (req, res) => {
+  const id = req.params['productNumber'];
+
+  productQuery({"productNumber": id.toString}, (err, product) => {
     if (err) {
       throw err;
     } else {
-      let productInfo = JSON.stringify(sampleProduct);
-      console.log('sampleProduct', sampleProduct);
+      let productInfo = JSON.stringify(product);
       res.send(productInfo);
       res.end();
     }
