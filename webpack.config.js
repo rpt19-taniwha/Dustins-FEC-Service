@@ -5,18 +5,18 @@ console.log('publidDir', publicDir);
 console.log('clientDir', clientDir);
 
 module.exports = {
-  mode: "development",
+  mode: 'development',
   entry: `${clientDir}/app.jsx`,
 
   output: {
-    filename: "bundle.js",
+    filename: 'bundle.js',
     path: publicDir
   },
   module: {
     rules: [
       {
         test: /\.jsx?$/,
-        loader: "babel-loader",
+        loader: 'babel-loader',
         exclude: /node_modules/,
         options: {
           presets: ['@babel/preset-env', '@babel/preset-react']
