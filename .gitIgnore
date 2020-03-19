@@ -6,3 +6,6 @@ public/bundle.js
 
 ## API keys ##
 config/aws.js
+
+## ESLINT ##
+.eslintrc.js

@@ -26,11 +26,8 @@ const productQuery = (object, callback) => {
       callback(null, product);
       db.close();
     }
-
   });
-
-
-}
+};
 
 
 
