@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import ReactDom from 'react-dom';
+import './styles.css';
 
 const App = () => {
-  console.log('In React App');
   return (
     <div>
       <h1>React is Rendering Properly</h1>
