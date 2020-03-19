@@ -2,10 +2,9 @@
 node_modules/
 
 ## Compiled Files ##
-public/bundle.js
+client/dist/bundle.js
 
 ## API keys ##
-config/aws.js
 
 ## ESLINT ##
 .eslintrc.js
