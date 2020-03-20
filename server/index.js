@@ -1,11 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-<<<<<<< HEAD
-const {db, productQuery} = require('../database/index.js');
-=======
 const {productQuery} = require('../database/index.js');
->>>>>>> 8276d0a4610b5f711c46efcf89abb2344faf051f
 const port = 8000;
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));

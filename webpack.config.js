@@ -4,18 +4,10 @@ const DIST_DIR = path.join(__dirname, 'client/dist');
 
 module.exports = {
   mode: 'development',
-<<<<<<< HEAD
-  entry: `${clientDir}/app.jsx`,
-
-  output: {
-    filename: 'bundle.js',
-    path: publicDir
-=======
-  entry: SRC_DIR,
+  entry: `${SRC_DIR}/app.jsx`,
   output: {
     filename: 'bundle.js',
     path: DIST_DIR
->>>>>>> 8276d0a4610b5f711c46efcf89abb2344faf051f
   },
   module: {
     rules: [

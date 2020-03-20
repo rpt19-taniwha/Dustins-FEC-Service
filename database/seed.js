@@ -32,17 +32,14 @@ const productListWithImages = productList.map((product, k) => {
       sampleUrls.push(sampleUrl);
     }
   }
-  finalProduct['Id'] = product['productNumber'];
+  finalProduct['productNumber'] = product['productNumber'];
   if (k === 0) {
     const sampleImgs = sampleImages(sampleUrls, 8);
-    console.log('sampleImgs', sampleImgs);
     finalProduct['imageUrls'] = sampleImgs;
   } else {
     const productImages = profileImages(imageUrls, 10);
-    // console.log('productImages', productImages);
     finalProduct['imageUrls'] = productImages;
   }
-  console.log('finalProduct', finalProduct);
   return finalProduct;
 });
 
@@ -50,7 +47,7 @@ db.once('open', function() {
   console.log('we\'re connected!');
 
   var imageSchema = new mongoose.Schema({
-    productId: String,
+    productNumber: String,
     imageUrls: {
       type: Array,
       default: undefined
@@ -60,12 +57,11 @@ db.once('open', function() {
   var Image = mongoose.model('Image', imageSchema);
 
   Image.insertMany(productListWithImages, (err, response) => {
-      if (err) {
-        console.log('error', error);
-      } else {
-        console.log('db insertion complete', response);
-        db.close();
-      }
-   }
-  );
+    if (err) {
+      console.log('error', error);
+    } else {
+      console.log('db insertion complete', response);
+      db.close();
+    }
+  });
 });
