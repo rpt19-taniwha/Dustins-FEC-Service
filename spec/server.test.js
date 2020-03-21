@@ -1,6 +1,5 @@
 const request = require('request');
 
-
 test('makes api request to the /product/:productNumber endpoint', (done) => {
   request('http://localhost:8000/product/549504785', function (error, response, body) {
     if (error) {

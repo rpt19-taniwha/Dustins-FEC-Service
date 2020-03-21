@@ -15,7 +15,6 @@ test('the function createRandomQuantity takes in a maximum number and does not r
   expect(randomNumbers.every((val) => val === randomNumber1)).toBe(false);
 });
 
-
 test('creates a picture url out of a s3 folder url, name, id, filetype', () => {
 
   const s3FolderUrl = 'https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/Fec+pictures/';
