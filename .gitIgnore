@@ -1,5 +1,5 @@
 ## NPM##
-node_modules
+node_modules/
 
 ## Compiled Files ##
 client/dist/bundle.js
@@ -10,4 +10,4 @@ client/dist/bundle.js
 .eslintrc.js
 
 ## Test Coverage Files ##
-spec/coverage
+spec/coverage/
