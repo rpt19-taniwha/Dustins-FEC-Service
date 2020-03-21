@@ -44,7 +44,6 @@ const productListWithImages = productList.map((product, k) => {
 });
 
 db.once('open', function() {
-  console.log('we\'re connected!');
 
   var imageSchema = new mongoose.Schema({
     productNumber: String,
@@ -54,14 +53,15 @@ db.once('open', function() {
     }
   });
 
-  var Image = mongoose.model('Image', imageSchema);
+  var Image = mongoose.model('images', imageSchema);
 
   Image.insertMany(productListWithImages, (err, response) => {
     if (err) {
-      console.log('error', error);
+      console.log('error', err);
     } else {
-      console.log('db insertion complete', response);
       db.close();
     }
   });
 });
+
+module.exports.insertSeed;
