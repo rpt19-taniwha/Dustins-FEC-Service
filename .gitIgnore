@@ -1,6 +1,7 @@
 ## NPM##
 node_modules/
 
+
 ## Compiled Files ##
 client/dist/bundle.js
 

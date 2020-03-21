@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1584819666223" clover="3.2.0">
-  <project timestamp="1584819666223" name="All files">
+<coverage generated="1584824183489" clover="3.2.0">
+  <project timestamp="1584824183490" name="All files">
     <metrics statements="35" coveredstatements="33" conditionals="4" coveredconditionals="2" methods="6" coveredmethods="6" elements="45" coveredelements="41" complexity="0" loc="35" ncloc="35" packages="1" files="3" classes="3"/>
     <file name="dbHelper.js" path="/Users/dustinancalade/Desktop/coding/rpt19/FEC/Dustins-FEC-Service/database/dbHelper.js">
       <metrics statements="19" coveredstatements="19" conditionals="2" coveredconditionals="1" methods="4" coveredmethods="4"/>
