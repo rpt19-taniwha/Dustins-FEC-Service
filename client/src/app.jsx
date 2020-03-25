@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import $ from 'jquery';
+import Resizer from 'react-image-file-resizer';
 import css from './style.css';
 import ImageView from './components/imageView.jsx';
 import ZoomView from './components/zoomView.jsx';
@@ -11,7 +12,9 @@ class App extends React.Component {
     super(props);
     this.state = {
       mainImage: '',
-      imageList: ['empty', 'empty']
+      imageListNormal: ['empty', 'empty'],
+      imageListZoom: ['empty', 'empty'],
+      imageListThumbnail: ['empty', 'empty']
     };
 
   }
@@ -27,7 +30,9 @@ class App extends React.Component {
         const parsedObj = JSON.parse(imageObj);
         const imageUrls = parsedObj.imageUrls;
         this.setState({
+
           imageList: imageUrls,
+
           mainImage: imageUrls[1]
         }, () => {
           console.log('new state', this.state);
@@ -36,6 +41,16 @@ class App extends React.Component {
     });
   }
 
+  // fileSizeHandler(photos, type) {
+  //   const thumbnail = [75, 75];
+  //   const normal = [1200, 360];
+  //   const zoom = [2000, 900];
+  //   if (type = 'normal') {
+  //     Resizer.imageFileResizer(
+  //       photos
+  //     );
+  //   }
+  // }
   handleClickOnPhoto(e) {
 
   }
