@@ -1,13 +1,17 @@
-import React, {useState, useEffect} from 'react';
-import imageThumbnail from './imageThumbnail.jsx';
+import React from 'react';
+import ImageThumbnail from './imageThumbnail.jsx';
 
-const imageList = () => {
-  return (
+const ImageList = ({images}) => {
+  console.log('images in imageList', images);
+  return images.map((image, i) => (
     <div>
-      <h1>React is Rendering Properly</h1>
+      <ImageThumbnail
+        image = {image}
+        key = {i.toString()}
+      />
     </div>
-  );
-
+  ));
 };
 
-export default imageList;
+export default ImageList;
+

@@ -1,13 +1,18 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 
 
-const mainImage = () => {
-  return (
-    <div>
-      <h1>React is Rendering Properly</h1>
-    </div>
-  );
+const MainImage = ({mainImage}) => {
+  console.log('mainImage', mainImage);
+  if (mainImage === '') {
+    return (<div>Please wait for the main image to load</div>);
+  } else {
+    return <div>
+      <h1>mainImage</h1>
+      <img className='standard'src={mainImage}></img>
+    </div>;
+  }
 
 };
 
-export default mainImage;
+
+export default MainImage;

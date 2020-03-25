@@ -1,13 +1,20 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 
-const imageThumbnail = () => {
+const ImageThumbnail = ({image}) => {
 
-  return (
-    <div>
-      <h1>React is Rendering Properly</h1>
-    </div>
-  );
-
+  if (image === 'empty') {
+    return ( <div>Please Wait while this image loads</div>);
+  } else {
+    return (
+      <div>
+        <img className="thumbnail" src={`${image}`} />
+      </div>
+    );
+  }
 };
 
-export default imageThumbnail;
+
+
+
+
+export default ImageThumbnail;

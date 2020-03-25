@@ -1,15 +1,16 @@
-import React, {useState, useEffect} from 'react';
-import mainImage from './mainImage.jsx';
-import imageList from './imageList.jsx';
+import React from 'react';
+import MainImage from './mainImage.jsx';
+import ImageList from './imageList.jsx';
 
-const imageView = () => {
 
-  return (
-    <div>
-      <h1>React is Rendering Properly</h1>
-    </div>
-  );
 
-};
 
-export default imageView;
+const ImageView = ({images, mainImage}) => (
+  <div>
+    <ImageList images={images} />
+    <MainImage mainImage={mainImage}/>
+  </div>
+);
+
+
+export default ImageView;
