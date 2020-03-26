@@ -22,7 +22,6 @@ const productQuery = (object, callback) => {
       callback(err, null);
       db.close();
     } else {
-      console.log('product', product);
       callback(null, product);
       db.close();
     }

@@ -32,14 +32,18 @@ const createSampleImageProfile = (images, numberOfImages) => {
   for (let j = 0; j < numberOfImages; j++) {
     singleProfileImages.push(images[j]);
   }
-  // console.log('singleProfileImages', singleProfileImages);
   return singleProfileImages;
 };
 
 // constructs the full file path for each url from pieces to avoid hardcoding
 const createImageUrl = (folderUrl, name, i, fileType) => {
-  return `${folderUrl}${name}/${i}${fileType}`;
+  return `${folderUrl}${name}${i}${fileType}`;
 };
 
 
-module.exports = { profileImages: createRandomImageProfiles, sampleImages: createSampleImageProfile, createImageUrl: createImageUrl };
+module.exports = {
+  profileImages: createRandomImageProfiles,
+  sampleImages: createSampleImageProfile,
+  createImageUrl: createImageUrl,
+  createRandomQuantity: createRandomQuantity
+};
