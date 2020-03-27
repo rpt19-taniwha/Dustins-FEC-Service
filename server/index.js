@@ -17,6 +17,7 @@ app.get('/product/:productNumber', (req, res) => {
       throw err;
     } else {
       let productInfo = JSON.stringify(product);
+      console.log('productInfo', productInfo);
       res.send(productInfo);
       res.end();
     }

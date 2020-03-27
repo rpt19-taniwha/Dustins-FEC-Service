@@ -2,21 +2,10 @@ const mongoose = require('mongoose');
 const {profileImages, sampleImages, createImageUrl} = require('./dbHelper.js');
 const productList = require('./sample_products.js');
 
-mongoose.connect('mongodb://localhost/Images', {useNewUrlParser: true, useUnifiedTopology: true});
-
-var db = mongoose.connection;
 const s3FolderUrl = 'https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/Fec+pictures/';
 const s3SampleUrl = 'https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/';
 const s3sampleImageQuantity = 8;
 const s3ImageQuantity = 31;
-
-db.on('error', console.error.bind(console, 'connection error:'));
-db.on('open', () => {
-  db.dropDatabase(function(err, result) {
-    console.log('collection dropped');
-  });
-});
-
 
 const productListWithImages = productList.map((product, k) => {
   const imageUrls = [];
@@ -28,7 +17,7 @@ const productListWithImages = productList.map((product, k) => {
     imageUrls.push(url);
 
     if (i < s3sampleImageQuantity) {
-      const sampleUrl = createImageUrl(s3SampleUrl, 'pokenatomy', i, '.jpg');
+      const sampleUrl = createImageUrl(s3SampleUrl, 'pokenatomy', i + 1, '.jpg');
       sampleUrls.push(sampleUrl);
     }
   }
@@ -43,7 +32,21 @@ const productListWithImages = productList.map((product, k) => {
   return finalProduct;
 });
 
+mongoose.connect('mongodb://localhost/Images', {useNewUrlParser: true, useUnifiedTopology: true});
+var db = mongoose.connection;
+
+db.dropDatabase(function(err, result) {
+  console.log('collection dropped');
+});
+
+
+db.on('error', console.error.bind(console, 'connection error:'));
+
+
+
+var db = mongoose.connection;
 db.once('open', function() {
+  console.log('opening');
 
   var imageSchema = new mongoose.Schema({
     productNumber: String,
@@ -54,7 +57,6 @@ db.once('open', function() {
   });
 
   var Image = mongoose.model('images', imageSchema);
-
   Image.insertMany(productListWithImages, (err, response) => {
     if (err) {
       console.log('error', err);
@@ -63,5 +65,9 @@ db.once('open', function() {
     }
   });
 });
+
+
+
+
 
 module.exports.insertSeed;

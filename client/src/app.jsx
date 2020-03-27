@@ -12,9 +12,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       mainImage: '',
-      imageListNormal: ['empty', 'empty'],
-      imageListZoom: ['empty', 'empty'],
-      imageListThumbnail: ['empty', 'empty']
+      imageList: ['empty', 'empty'],
     };
 
   }
@@ -30,10 +28,8 @@ class App extends React.Component {
         const parsedObj = JSON.parse(imageObj);
         const imageUrls = parsedObj.imageUrls;
         this.setState({
-
           imageList: imageUrls,
-
-          mainImage: imageUrls[1]
+          mainImage: imageUrls[0]
         }, () => {
           console.log('new state', this.state);
         });
@@ -56,7 +52,7 @@ class App extends React.Component {
   }
 
   render() {
-    console.log('mainImage', this.state.mainImage);
+    console.log('mainImage', this.state.imageList);
     return (
       <div id='normal'>
         <ImageView
