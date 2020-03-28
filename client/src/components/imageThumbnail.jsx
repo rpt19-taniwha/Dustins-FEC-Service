@@ -1,9 +1,8 @@
 import React from 'react';
 
-const ImageThumbnail = ({image}) => {
-
+const ImageThumbnail = ({image, id}) => {
   if (image === 'empty') {
-    return ( <div>Please Wait while this image loads</div>);
+    return ( <div>image</div>);
   } else {
     return (
       <div>

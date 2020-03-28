@@ -7,7 +7,7 @@ const MainImage = ({mainImage}) => {
   } else {
     return <div>
       <h1>mainImage</h1>
-      <img className='standard'src={mainImage}></img>
+      <img className='standard'src={mainImage} key={'000mainImage'}></img>
     </div>;
   }
 
