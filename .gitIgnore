@@ -2,9 +2,6 @@
 node_modules/
 
 
-## Compiled Files ##
-client/dist/bundle.js
-
 ## API keys ##
 
 ## ESLINT ##
