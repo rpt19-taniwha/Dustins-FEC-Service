@@ -19,7 +19,7 @@ test('makes api request to the /product/:productNumber endpoint', (done) => {
 test('makes api request to the /mainImage/:productNumber endpoint', (done) => {
   request('http://localhost:8000/mainImage/549504785', function (error, response, body) {
     if (error) {
-      // console.log('error', error);
+      console.log('error', error);
     } else {
       const product = JSON.parse(body);
       expect(response.statusCode).toBe(200);
