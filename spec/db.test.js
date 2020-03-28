@@ -45,7 +45,6 @@ test('creates an array of product images between 1 and 10 images long from sampl
   const imageArray3 = profileImages(dummyUrls, 10);
   const imageArray4 = profileImages(dummyUrls, 10);
   const imageQtys = [imageArray1.length, imageArray2.length, imageArray3.length];
-  console.log('imageQtys', imageQtys);
   expect(imageQtys.every((qty) => qty <= 10)).toBe(true);
   expect(imageQtys.every((qty) => qty === imageArray4.length)).toBe(false);
 
