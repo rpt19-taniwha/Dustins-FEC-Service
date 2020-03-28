@@ -12,7 +12,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       mainImage: '',
-      imageList: ['empty', 'empty'],
+      imageList: ['empty', 'empty']
     };
 
   }
@@ -52,7 +52,7 @@ class App extends React.Component {
   }
 
   render() {
-    console.log('mainImage', this.state.imageList);
+    console.log('this.state', this.state);
     return (
       <div id='normal'>
         <ImageView

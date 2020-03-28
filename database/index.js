@@ -20,10 +20,10 @@ const productQuery = (object, callback) => {
   Image.findOne(object, (err, product) => {
     if (err) {
       callback(err, null);
-      db.close();
+      // db.close();
     } else {
       callback(null, product);
-      db.close();
+      // db.close();
     }
   });
 };

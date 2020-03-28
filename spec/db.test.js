@@ -64,8 +64,8 @@ test(`makes database call to retrieve Pokenatomy pictures when ${sampleProductId
       done(err);
     } else {
       expect(contents.imageUrls.length).toBe(8);
-      expect(contents.imageUrls[0]).toBe('https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy0.jpg');
-      expect(contents.imageUrls[7]).toBe('https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy7.jpg');
+      expect(contents.imageUrls[0]).toBe('https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy1.jpg');
+      expect(contents.imageUrls[7]).toBe('https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy8.jpg');
       done();
     }
   });
