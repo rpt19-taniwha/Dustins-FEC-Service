@@ -29,10 +29,14 @@ app.get('/mainImage/:productNumber', (req, res) => {
   console.log('id', id);
   productQuery({'productNumber': id.toString}, (err, product) => {
     if (err) {
-      console.error('error', err);
+      throw err;
     } else {
-      const mainImage = product.imageUrls[0];
-      res.send(mainImage);
+      console.log('product', product);
+      const data = {
+        mainImage: product.imageUrls[0]
+      };
+      console.log('data', data);
+      res.send(data);
 
       res.end();
     }
