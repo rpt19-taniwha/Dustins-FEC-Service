@@ -66,4 +66,4 @@ class App extends React.Component {
 }
 
 
-ReactDom.render(<App />, document.getElementById('app'));
+ReactDom.render(<App />, document.getElementById('images'));
