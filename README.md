@@ -33,7 +33,9 @@ Service Repo For FEC
   - to start mongodb type: mongo into the cli inside your the dustins-fec-service folder.
   - no username or password
   - seed the database by typing in: npm run seed in the cli
-  -
+
+  API endpoints:
+    - '/mainImage/:productNumber'
 
 
 
