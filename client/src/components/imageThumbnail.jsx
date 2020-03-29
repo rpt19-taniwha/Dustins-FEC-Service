@@ -1,12 +1,17 @@
 import React from 'react';
+import Image from 'react-image-resizer';
 
-const ImageThumbnail = ({image, id}) => {
+const ImageThumbnail = ({image}) => {
   if (image === 'empty') {
     return ( <div>image</div>);
   } else {
     return (
-      <div>
-        <img className="thumbnail" src={`${image}`} />
+      <div className='thumbnail'>
+        <Image
+          src={image}
+          height={75}
+          width={75}
+        />
       </div>
     );
   }

@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import $ from 'jquery';
-import Resizer from 'react-image-file-resizer';
 import css from './style.css';
 import ImageView from './components/imageView.jsx';
 import ZoomView from './components/zoomView.jsx';
