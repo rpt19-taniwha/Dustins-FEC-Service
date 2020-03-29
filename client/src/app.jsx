@@ -11,18 +11,23 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      imageList: ['empty', 'empty'],
-      mainImage: ''
+      productNumber: '549504785',
+      imageList: ["https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy1.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy2.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy3.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy4.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy5.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy6.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy7.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy8.jpg"
+    ],
+      mainImage: "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy1.jpg"
     };
 
   }
 
   componentDidMount() {
-    this.getUrls();
+    const productId = window.location.pathname.split('/')[2];
+    this.setState(({productNumber: productId}), () => {
+      this.getUrls(this.state.productNumber);
+    })
 
   }
 
-  getUrls(productNumber = '549504785') {
+  getUrls(productNumber) {
     $.ajax(`/product/${productNumber}`, {
       success: (imageObj) => {
         const parsedObj = JSON.parse(imageObj);
