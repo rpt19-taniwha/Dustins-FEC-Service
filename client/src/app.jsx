@@ -21,9 +21,11 @@ class App extends React.Component {
 
   componentDidMount() {
     const productId = window.location.pathname.split('/')[2];
-    this.setState(({productNumber: productId}), () => {
-      this.getUrls(this.state.productNumber);
-    })
+    if (productId) {
+      this.setState(({productNumber: productId}), () => {
+        this.getUrls(this.state.productNumber);
+      })
+    }
 
   }
 
