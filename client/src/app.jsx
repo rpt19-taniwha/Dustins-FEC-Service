@@ -26,7 +26,6 @@ class App extends React.Component {
         this.getUrls(this.state.productNumber);
       })
     }
-
   }
 
   getUrls(productNumber) {
