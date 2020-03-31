@@ -1,13 +1,13 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 
-const ImageThumbnail = ({image, id}) => {
+const ImageThumbnail = ({image}) => {
   if (image === 'empty') {
-    return ( <div>image</div>);
+    return (<Fragment>image</Fragment>);
   } else {
     return (
-      <div>
-        <img className="thumbnail" src={`${image}`} />
-      </div>
+      <Fragment>
+        <img src={image}/>
+      </Fragment>
     );
   }
 };

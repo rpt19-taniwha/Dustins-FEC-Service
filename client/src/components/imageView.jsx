@@ -6,9 +6,15 @@ import ImageList from './imageList.jsx';
 
 
 const ImageView = ({images, mainImage}) => (
-  <div>
-    <ImageList images={images} />
-    <MainImage mainImage={mainImage} />
+  <div id='imageviewcontainer'>
+    <ul id='thumbnailcontainer'>
+      <ImageList images={images} />
+    </ul>
+    <div id='mainimagecontainer'>
+      <MainImage mainImage={mainImage} />
+
+    </div>
+
   </div>
 );
 
