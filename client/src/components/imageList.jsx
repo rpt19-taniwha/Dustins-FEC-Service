@@ -3,13 +3,13 @@ import ImageThumbnail from './imageThumbnail.jsx';
 
 const ImageList = ({images}) => {
   return images.map((image, i) => (
-    <div>
+    <li className='imagelist'>
       <ImageThumbnail
         image={image}
         key={i.toString()}
         id={i.toString()}
       />
-    </div>
+    </li>
   ));
 };
 

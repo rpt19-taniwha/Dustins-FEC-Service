@@ -42,17 +42,7 @@ class App extends React.Component {
     });
   }
 
-  // fileSizeHandler(photos, type) {
-  //   const thumbnail = [75, 75];
-  //   const normal = [1200, 360];
-  //   const zoom = [2000, 900];
-  //   if (type = 'normal') {
-  //     Resizer.imageFileResizer(
-  //       photos
-  //     );
-  //   }
-  // }
-  handleClickOnPhoto(e) {
+  handleClickOnArrow(e) {
 
   }
 
@@ -63,7 +53,7 @@ class App extends React.Component {
         <ImageView
           images={this.state.imageList}
           mainImage={this.state.mainImage}
-          imageClick={this.handleClickOnPhoto.bind(this)}
+          imageClick={this.handleClickOnArrow.bind(this)}
         />
       </div>
     );
@@ -71,4 +61,4 @@ class App extends React.Component {
 }
 
 
-ReactDom.render(<App />, document.getElementById('images'));
+ReactDom.render(<App />, document.getElementById('image'));

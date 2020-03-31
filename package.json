@@ -22,9 +22,6 @@
     "jquery": "^3.4.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
-
-    "react-image-file-resizer": "^0.2.1",
-
     "@babel/core": "^7.8.7",
     "@babel/preset-env": "^7.8.7",
     "@babel/preset-react": "^7.8.3",
