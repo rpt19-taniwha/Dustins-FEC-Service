@@ -33,6 +33,20 @@ class ImageService extends React.Component {
     }
   }
 
+  getListing() {
+    $.ajax(`/listing/${productNumber}`, {
+      success: () => {
+
+        this.setState({
+          imageList: imageUrls,
+          mainImage: imageUrls[0]
+        }, () => {
+          console.log('new state', this.state);
+        });
+      }
+    });
+  }
+
   getUrls(productNumber) {
     $.ajax(`/product/${productNumber}`, {
       success: (imageObj) => {

@@ -3,6 +3,7 @@ const app = express();
 const path = require('path');
 const {db, productQuery} = require('../database/index.js');
 const port = process.env.Port || 8000;
+const cors = require('cors');
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, '..', 'client/dist')));
@@ -12,7 +13,7 @@ app.use(cors());
 
 app.get('/', (req, res) => {
   res.sendFile(('index.html', {
-    root: path.join(__dirname, '..', 'client/dist/'),
+    root: path.join(__dirname, '..', 'client/dist/imageService.jsx'),
   }));
 });
 
