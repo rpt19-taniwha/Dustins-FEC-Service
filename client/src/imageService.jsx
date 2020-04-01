@@ -12,7 +12,7 @@ library.add(fab, faChevronRight, faChevronLeft, faHeart);
 
 
 
-class App extends React.Component {
+class ImageService extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -32,6 +32,7 @@ class App extends React.Component {
       })
     }
   }
+
 
   getUrls(productNumber) {
     $.ajax(`/product/${productNumber}`, {
@@ -67,4 +68,4 @@ class App extends React.Component {
 }
 
 
-ReactDom.render(<App />, document.getElementById('image'));
+ReactDom.render(<ImageService />, document.getElementById('image'));
