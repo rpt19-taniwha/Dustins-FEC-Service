@@ -8,6 +8,13 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, '..', 'client/dist')));
 
 
+app.use(cors());
+
+app.get('/', (req, res) => {
+  res.sendFile(('index.html', {
+    root: path.join(__dirname, '..', 'client/dist/'),
+  }));
+});
 
 app.get('/product/:productNumber', (req, res) => {
   const id = req.params['productNumber'];
