@@ -21,7 +21,7 @@ class ImageService extends React.Component {
     ],
       mainImage: "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy1.jpg"
     };
-
+    const rootUrl = 'http://localhost:8000';
   }
 
   componentDidMount() {
@@ -35,7 +35,7 @@ class ImageService extends React.Component {
 
 
   getUrls(productNumber) {
-    $.ajax(`/product/${productNumber}`, {
+    $.ajax(`${rootUrl}/product/${productNumber}`, {
       success: (imageObj) => {
         const parsedObj = JSON.parse(imageObj);
         const imageUrls = parsedObj.imageUrls;
