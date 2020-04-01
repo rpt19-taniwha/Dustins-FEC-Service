@@ -10,7 +10,7 @@ app.use(express.static(path.join(__dirname, '..', 'client/dist')));
 
 
 
-app.get('/', (req, res) => {
+app.get('/listing/:productNumber', (req, res) => {
   res.sendFile(('index.html', {
     root: path.join(__dirname, '..', 'client/dist/imageService.jsx'),
   }));
