@@ -3,26 +3,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 
-const MainImage = ({mainImage}) => {
-  if (mainImage === '') {
-    return (<Fragment>Please wait for the main image to load</Fragment>);
-  } else {
+const MainImage = ({mainImage, arrowClick}) => {
+  return (<Fragment>
+    <img id='mainimage'src={mainImage}/>
+    <div id='favorites'>
+      <FontAwesomeIcon icon='heart' />
+    </div>
+    <div className='nav-prev' onClick={(e) => {arrowClick(e.currentTarget)}} >
+      <FontAwesomeIcon icon='chevron-left' className='right' onClick={(e) => {arrowClick(e.currentTarget)}} />
+    </div>
+    <div className='nav-next' onClick={(e) => {arrowClick(e.currentTarget)}} >
+      <FontAwesomeIcon icon='chevron-right' className='right' onClick={(e) => {arrowClick(e.currentTarget)}} />
+    </div>
+  </Fragment>
+  );
 
-    return (<Fragment>
-      <img id='mainimage'src={mainImage}/>
-      <div id='favorites'>
-        <FontAwesomeIcon icon='heart' />
-      </div>
-      <div className='nav-prev'>
-        <FontAwesomeIcon icon='chevron-left' />
-      </div>
-      <div className='nav-next'>
-      <FontAwesomeIcon icon='chevron-right' />
-      </div>
-    </Fragment>
-
-    );
-  }
 };
 
 

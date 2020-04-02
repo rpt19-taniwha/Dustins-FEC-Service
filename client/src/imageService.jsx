@@ -20,7 +20,8 @@ class ImageService extends React.Component {
       productNumber: '549504785',
       imageList: ["https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy1.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy2.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy3.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy4.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy5.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy6.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy7.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy8.jpg"
     ],
-      mainImage: "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy1.jpg"
+      mainImage: "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy1.jpg",
+      mainImageIndex: 0
     };
 
     this.getUrls = this.getUrls = this.getUrls.bind(this);
@@ -38,7 +39,6 @@ class ImageService extends React.Component {
     }
   }
 
-
   getUrls(productNumber) {
     $.ajax(`${this.state.rootUrl}/product/${productNumber}`, {
       success: (imageObj) => {
@@ -46,20 +46,54 @@ class ImageService extends React.Component {
         const imageUrls = parsedObj.imageUrls;
         this.setState({
           imageList: imageUrls,
-          mainImage: imageUrls[0]
+          mainImage: imageUrls[0],
+          mainImageIndex: 0
         });
       }
     });
   }
 
-  handleClickOnArrow(e) {
+  handleClickOnArrow(target) {
+    const currIndex = this.state.mainImageIndex;
+    const imageList = this.state.imageList;
+
+    if (target.className === 'nav-prev') {
+      if (currIndex === 0) {
+        this.setState({
+          mainImage: imageList[imageList.length - 1],
+          mainImageIndex: imageList.length - 1});
+      } else {
+        this.setState({
+          mainImage: imageList[currIndex - 1],
+          mainImageIndex: currIndex -1});
+      }
+    }
+
+    if (target.className === 'nav-next') {
+
+      if (currIndex === imageList.length - 1) {
+        this.setState({
+          mainImage: imageList[0],
+          mainImageIndex: 0
+        });
+
+      } else {
+        this.setState({
+          mainImage: imageList[currIndex + 1],
+          mainImageIndex: currIndex + 1
+        });
+      }
+    }
+  }
+
+
+  handleHoverOnThumbnail(target, index) {
+    this.setState({mainImage: target.src, mainImageIndex: index});
 
   }
 
-  handleHoverOnThumbnail(target) {
-    console.log('this', this);
-    this.setState({mainImage: target.src});
-
+  handleClickOnMainImage(target) {
+    console.log('target', target);
   }
 
   render() {
