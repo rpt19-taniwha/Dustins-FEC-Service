@@ -4,18 +4,14 @@ import React, {Fragment} from 'react';
 
 
 
-const ImageThumbnail = ({image}) => {
-  if (image === 'empty') {
-    return (<Fragment>image</Fragment>);
-  } else {
-    return (
-      <Fragment>
-        <img src={image}/>
-      </Fragment>
-
-    );
-  }
+const ImageThumbnail = ({image, thumbnailHover}) => {
+  return (
+    <Fragment>
+      <img src={image} onMouseEnter={(e) => {console.log('this', this), thumbnailHover(e.target)}}/>
+    </Fragment>
+  );
 };
+
 
 
 
