@@ -10,10 +10,10 @@ const MainImage = ({mainImage, arrowClick}) => {
       <FontAwesomeIcon icon='heart' />
     </div>
     <div className='nav-prev' onClick={(e) => {arrowClick(e.currentTarget)}} >
-      <FontAwesomeIcon icon='chevron-left' className='right' onClick={(e) => {arrowClick(e.currentTarget)}} />
+      <FontAwesomeIcon icon='chevron-left' />
     </div>
     <div className='nav-next' onClick={(e) => {arrowClick(e.currentTarget)}} >
-      <FontAwesomeIcon icon='chevron-right' className='right' onClick={(e) => {arrowClick(e.currentTarget)}} />
+      <FontAwesomeIcon icon='chevron-right' />
     </div>
   </Fragment>
   );
