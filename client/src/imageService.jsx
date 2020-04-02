@@ -23,6 +23,10 @@ class ImageService extends React.Component {
       mainImage: "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy1.jpg"
     };
 
+    this.getUrls = this.getUrls = this.getUrls.bind(this);
+    this.handleClickOnArrow = this.handleClickOnArrow.bind(this);
+    this.handleHoverOnThumbnail = this.handleHoverOnThumbnail.bind(this);
+
   }
 
   componentDidMount() {
@@ -43,14 +47,18 @@ class ImageService extends React.Component {
         this.setState({
           imageList: imageUrls,
           mainImage: imageUrls[0]
-        }, () => {
-          console.log('new state', this.state);
         });
       }
     });
   }
 
   handleClickOnArrow(e) {
+
+  }
+
+  handleHoverOnThumbnail(target) {
+    console.log('this', this);
+    this.setState({mainImage: target.src});
 
   }
 
@@ -61,7 +69,8 @@ class ImageService extends React.Component {
         <ImageView
           images={this.state.imageList}
           mainImage={this.state.mainImage}
-          imageClick={this.handleClickOnArrow.bind(this)}
+          arrowClick={this.handleClickOnArrow}
+          thumbnailHover={this.handleHoverOnThumbnail}
         />
       </div>
     );

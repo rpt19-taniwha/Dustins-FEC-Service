@@ -1,13 +1,13 @@
 import React from 'react';
 import ImageThumbnail from './imageThumbnail.jsx';
 
-const ImageList = ({images}) => {
-  return images.map((image, i) => (
+const ImageList = ({images, thumbnailHover}) => {
+  return images.map((image) => (
     <li className='imagelist'>
       <ImageThumbnail
         image={image}
-        key={i.toString()}
-        id={i.toString()}
+        thumbnailHover={thumbnailHover}
+        key={image.toString()}
       />
     </li>
   ));
