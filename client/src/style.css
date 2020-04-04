@@ -17,8 +17,11 @@ h1 {
   position: absolute;
   width: 100%;
   max-width: 100%;
+  height: auto;
   border-radius: 4px;
   border: 1px solid black;
+  overflow: visible;
+
 
 
 
@@ -27,7 +30,6 @@ h1 {
 #mainimagecontainer {
   margin-bottom: 6px;
   margin-right: 6px;
-
   position: relative;
   width: 100%;
   flex: 6 1 0%;
@@ -99,10 +101,23 @@ li.imagelist img {
     padding: 12px 16px;
 }
 
-/* .nav-prev .svg-inline--fa, .nav-next .svg-inline--fa{
+.popup-content {
+  z-index: 9999;
+  width: auto!important;
+  top: auto!important;
+  left: auto!important;
 
-  background: #fff;
-  border-radius: 50%;
-  padding: 12px 14px 12px 16px;
+}
+#zoomimage {
+  overflow: visible;
+  position: absolute;
+}
 
-} */
+.overlay{
+  position: fixed;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.popup-arrow {
+  display: none;
+}
