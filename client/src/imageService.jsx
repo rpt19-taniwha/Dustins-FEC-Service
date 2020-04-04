@@ -3,9 +3,15 @@ import ReactDom from 'react-dom';
 import $ from 'jquery';
 import css from './style.css';
 import ImageView from './components/imageView.jsx';
+<<<<<<< HEAD
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faChevronRight, faChevronLeft,  faHeart} from '@fortawesome/free-solid-svg-icons'
+=======
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { faChevronRight, faChevronLeft, faHeart} from '@fortawesome/free-solid-svg-icons';
+>>>>>>> create-zoom
 
 library.add(fab, faChevronRight, faChevronLeft, faHeart);
 
@@ -86,6 +92,7 @@ class ImageService extends React.Component {
     }
   }
 
+<<<<<<< HEAD
   // openPopupbox() {
   //   const content = () => (
   //     <div id={zoomcontainer}>
@@ -95,6 +102,8 @@ class ImageService extends React.Component {
   //   PopupboxManager.open({ content });
   // }
 
+=======
+>>>>>>> create-zoom
   handleHoverOnThumbnail(target, index) {
     this.setState({mainImage: target.src, mainImageIndex: index});
   }
@@ -104,7 +113,11 @@ class ImageService extends React.Component {
   }
 
   render() {
+<<<<<<< HEAD
     console.log('mainImage', this.state.mainImage);
+=======
+    console.log('sampleData', this.state.imageList);
+>>>>>>> create-zoom
     return (
       <div id='normal'>
         <ImageView
@@ -121,3 +134,5 @@ class ImageService extends React.Component {
 
 
 ReactDom.render(<ImageService />, document.getElementById('image'));
+
+export default ImageService;

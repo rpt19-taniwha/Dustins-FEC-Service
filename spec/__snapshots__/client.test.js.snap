@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Image Service should render with no props 1`] = `ShallowWrapper {}`;
+
+exports[`Image Service thumbnail should render with props 1`] = `ShallowWrapper {}`;
