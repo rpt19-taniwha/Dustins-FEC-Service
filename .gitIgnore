@@ -10,3 +10,4 @@ node_modules/
 ## Test Coverage Files ##
 spec/coverage
 spec/frontEnd/coverage
+spec/_snapshots_

@@ -7,5 +7,4 @@ module.exports = {
   coverageDirectory: './spec/coverage',
   verbose: true,
   collectCoverage: true,
-  detectOpenHandles: true,
 };

@@ -8,8 +8,8 @@
     "server": "node ./server/index.js",
     "server-dev": "nodemon ./server/index.js",
     "react-dev": "webpack --config webpack.config.js -d --watch",
-    "backend-test": "jest --testEnvironment=node --coverageDirectory='./spec/coverage' --verbose --collect-coverage --detectOpenHandles",
-    "frontend-test": "jest --testEnvironment=babel --coverageDirectory=./spec/frontEnd/coverage  --verbose --collect-coverage --detectOpenHandles"
+    "test": "jest --runInBand --detectOpenHandles"
+
   },
   "dependencies": {
     "express": "^4.17.1",

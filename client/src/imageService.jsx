@@ -95,6 +95,7 @@ class ImageService extends React.Component {
   }
 
   render() {
+    console.log('sampleData', this.state.imageList);
     return (
       <div id='normal'>
         <ImageView
@@ -111,3 +112,5 @@ class ImageService extends React.Component {
 
 
 ReactDom.render(<ImageService />, document.getElementById('image'));
+
+export default ImageService;
