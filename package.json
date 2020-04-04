@@ -9,7 +9,6 @@
     "server-dev": "nodemon ./server/index.js",
     "react-dev": "webpack --config webpack.config.js -d --watch",
     "test": "jest --runInBand --detectOpenHandles"
-
   },
   "dependencies": {
     "express": "^4.17.1",
