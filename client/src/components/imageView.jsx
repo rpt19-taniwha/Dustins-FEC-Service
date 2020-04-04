@@ -5,7 +5,7 @@ import ImageList from './imageList.jsx';
 
 
 
-const ImageView = ({images, mainImage, arrowClick, thumbnailHover}) => (
+const ImageView = ({images, mainImage, arrowClick, thumbnailHover, mainImageHover}) => (
   <div id='imageviewcontainer'>
     <ul id='thumbnailcontainer'>
       <ImageList
@@ -17,6 +17,7 @@ const ImageView = ({images, mainImage, arrowClick, thumbnailHover}) => (
       <MainImage
         mainImage={mainImage}
         arrowClick={arrowClick}
+        mainImageHover={mainImageHover}
       />
     </div>
   </div>

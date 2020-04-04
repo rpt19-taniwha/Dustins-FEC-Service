@@ -3,7 +3,6 @@ import ReactDom from 'react-dom';
 import $ from 'jquery';
 import css from './style.css';
 import ImageView from './components/imageView.jsx';
-import ZoomView from './components/zoomView.jsx';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faChevronRight, faChevronLeft,  faHeart} from '@fortawesome/free-solid-svg-icons'
@@ -21,12 +20,14 @@ class ImageService extends React.Component {
       imageList: ["https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy1.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy2.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy3.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy4.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy5.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy6.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy7.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy8.jpg"
     ],
       mainImage: "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy1.jpg",
-      mainImageIndex: 0
+      mainImageIndex: 0,
+      zoom: false
     };
 
     this.getUrls = this.getUrls = this.getUrls.bind(this);
     this.handleClickOnArrow = this.handleClickOnArrow.bind(this);
     this.handleHoverOnThumbnail = this.handleHoverOnThumbnail.bind(this);
+    this.handleHoverOnMainImage = this.handleHoverOnMainImage.bind(this);
 
   }
 
@@ -70,7 +71,6 @@ class ImageService extends React.Component {
     }
 
     if (target.className === 'nav-next') {
-
       if (currIndex === imageList.length - 1) {
         this.setState({
           mainImage: imageList[0],
@@ -86,18 +86,25 @@ class ImageService extends React.Component {
     }
   }
 
+  // openPopupbox() {
+  //   const content = () => (
+  //     <div id={zoomcontainer}>
+  //       <img id='zoomimage' src={this.mainImage} />
+  //     </div>
+  //   );
+  //   PopupboxManager.open({ content });
+  // }
 
   handleHoverOnThumbnail(target, index) {
     this.setState({mainImage: target.src, mainImageIndex: index});
-
   }
 
-  handleClickOnMainImage(target) {
-    console.log('target', target);
+  handleHoverOnMainImage() {
+    console.log('Hover');
   }
 
   render() {
-
+    console.log('mainImage', this.state.mainImage);
     return (
       <div id='normal'>
         <ImageView
@@ -105,6 +112,7 @@ class ImageService extends React.Component {
           mainImage={this.state.mainImage}
           arrowClick={this.handleClickOnArrow}
           thumbnailHover={this.handleHoverOnThumbnail}
+          mainImageHover={this.handleHoverOnMainImage}
         />
       </div>
     );

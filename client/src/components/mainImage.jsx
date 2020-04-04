@@ -1,11 +1,17 @@
 import React, { Fragment } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Popup from 'reactjs-popup';
+import Zoom from './popupZoom.jsx'
 
 
 
-const MainImage = ({mainImage, arrowClick}) => {
-  return (<Fragment>
-    <img id='mainimage'src={mainImage}/>
+const MainImage = ({ mainImage, arrowClick, mainImageHover }) => {
+  return (
+  <Fragment>
+    <Zoom
+      mainImage={mainImage}
+      mainImageHover={mainImageHover}
+    />
     <div id='favorites'>
       <FontAwesomeIcon icon='heart' />
     </div>
@@ -17,7 +23,6 @@ const MainImage = ({mainImage, arrowClick}) => {
     </div>
   </Fragment>
   );
-
 };
 
 
