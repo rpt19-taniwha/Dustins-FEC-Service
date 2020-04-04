@@ -8,4 +8,5 @@ node_modules/
 .eslintrc.js
 
 ## Test Coverage Files ##
-spec/coverage/
+spec/coverage
+spec/frontEnd/coverage

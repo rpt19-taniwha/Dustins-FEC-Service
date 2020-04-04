@@ -3,9 +3,9 @@ import ReactDom from 'react-dom';
 import $ from 'jquery';
 import css from './style.css';
 import ImageView from './components/imageView.jsx';
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faChevronRight, faChevronLeft,  faHeart} from '@fortawesome/free-solid-svg-icons'
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { faChevronRight, faChevronLeft, faHeart} from '@fortawesome/free-solid-svg-icons';
 
 library.add(fab, faChevronRight, faChevronLeft, faHeart);
 
@@ -86,15 +86,6 @@ class ImageService extends React.Component {
     }
   }
 
-  // openPopupbox() {
-  //   const content = () => (
-  //     <div id={zoomcontainer}>
-  //       <img id='zoomimage' src={this.mainImage} />
-  //     </div>
-  //   );
-  //   PopupboxManager.open({ content });
-  // }
-
   handleHoverOnThumbnail(target, index) {
     this.setState({mainImage: target.src, mainImageIndex: index});
   }
@@ -104,7 +95,6 @@ class ImageService extends React.Component {
   }
 
   render() {
-    console.log('mainImage', this.state.mainImage);
     return (
       <div id='normal'>
         <ImageView
