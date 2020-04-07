@@ -9,4 +9,4 @@ node_modules/
 
 ## Test Coverage Files ##
 spec/coverage
-spec/frontEnd/_snapshots_
+spec/frontEnd/__snapshots__/
