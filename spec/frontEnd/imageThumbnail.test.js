@@ -24,6 +24,13 @@ describe ('Thumbnail Component', () => {
     done();
   });
 
+  it('should render thumbnail component with props', (done) => {
+    const component = shallow(<ImageThumbnail />);
+    expect(component).toMatchSnapshot();
+    done();
+  });
+
+
   // it('should call the click handler when Thumbnail is hovered over', (done) => {
   //   const hoverMock = jest.fn();
   //   const component = shallow(<ImageThumbnail image={sampleProduct[0]} onMouseEnter={() => {hoverMock()}}/>);
