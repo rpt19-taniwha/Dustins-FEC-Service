@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ImageService Component ImageService Component should render without props 1`] = `ShallowWrapper {}`;
+
+exports[`ImageView component ImageView component should render without props 1`] = `ShallowWrapper {}`;
+
+exports[`MainImage Component MainImageComponent should render without props 1`] = `ShallowWrapper {}`;
+
+exports[`PopupZoom Component PopupZoom Component should render without props 1`] = `ShallowWrapper {}`;
+
+exports[`Thumbnail Component ImageList Component renders without props 1`] = `ShallowWrapper {}`;
+
+exports[`Thumbnail Component thumbnail should render with image 1`] = `ShallowWrapper {}`;
+
+exports[`Thumbnail Component thumbnail should render without props 1`] = `ShallowWrapper {}`;
