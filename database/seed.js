@@ -32,7 +32,9 @@ const productListWithImages = productList.map((product, k) => {
   return finalProduct;
 });
 
-mongoose.connect('mongodb://localhost/Images', {useNewUrlParser: true, useUnifiedTopology: true});
+const url = 'mongodb+srv://root:rE9EvYIQe91rR9mt@cluster0-o5gfo.mongodb.net/Images?retryWrites=true&w=majority';
+
+mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true});
 var db = mongoose.connection;
 
 db.dropDatabase(function(err, result) {
