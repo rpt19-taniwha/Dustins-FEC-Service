@@ -18,7 +18,7 @@ module.exports = {
       displayName: 'frontEnd',
       testEnvironment: 'jsdom',
       collectCoverageFrom:['spec/*.test.jsx'],
-      coverageDirectory: './spec/frontEnd/coverage',
+      coverageDirectory: './spec/frontEnd',
       testMatch: ['**/spec/frontEnd/**.test.js?(x)'],
       moduleNameMapper: {
         "\\.(css|less|scss|sss|styl)$": "<rootDir>/node_modules/jest-css-modules"

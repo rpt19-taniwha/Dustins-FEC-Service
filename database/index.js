@@ -2,7 +2,10 @@ const mongoose = require('mongoose');
 
 const url = 'mongodb+srv://root:rE9EvYIQe91rR9mt@cluster0-o5gfo.mongodb.net/Images?retryWrites=true&w=majority';
 
-mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, () => {
+  console.log('mongoose connected to mongo atlas');
+
+});
 
 const db = mongoose.connection;
 
@@ -24,6 +27,7 @@ const productQuery = (object, callback) => {
       callback(err, null);
 
     } else {
+      console.log('data', object);
       callback(null, product);
     }
   });
