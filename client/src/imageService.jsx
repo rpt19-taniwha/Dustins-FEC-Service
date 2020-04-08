@@ -15,7 +15,6 @@ class ImageService extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      rootUrl: 'http://localhost:8000',
       productNumber: '549504785',
       imageList: ["https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy1.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy2.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy3.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy4.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy5.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy6.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy7.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy8.jpg"
     ],
@@ -32,7 +31,7 @@ class ImageService extends React.Component {
   }
 
   componentDidMount() {
-    const productId = window.location.pathname.split('/')[2];
+    const productId = window.location.pathname.split('/')[2] || this.state.productNumber;
     if (productId) {
       this.setState(({productNumber: productId}), () => {
         this.getUrls(this.state.productNumber);
@@ -41,7 +40,7 @@ class ImageService extends React.Component {
   }
 
   getUrls(productNumber) {
-    $.ajax(`${this.state.rootUrl}/product/${productNumber}`, {
+    $.ajax(`/product/${productNumber}`, {
       success: (imageObj) => {
         const parsedObj = JSON.parse(imageObj);
         const imageUrls = parsedObj.imageUrls;
