@@ -21,7 +21,6 @@ var Image = mongoose.model('Image', imageSchema);
 db.on('error', console.error.bind(console, 'connection error:'));
 
 const productQuery = (object, callback) => {
-  console.log('object', object);
   Image.findOne(object, (err, product) => {
     if (err) {
       callback(err, null);
