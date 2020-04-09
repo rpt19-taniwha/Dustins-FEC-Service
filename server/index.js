@@ -20,8 +20,7 @@ app.get('/listing/:productNumber', (req, res) => {
 
 app.get('/product/:productNumber', (req, res) => {
   const id = req.params['productNumber'];
-
-  productQuery({'productNumber': id.toString}, (err, product) => {
+  productQuery({'productNumber': id.toString()}, (err, product) => {
     if (err) {
       throw err;
     } else {
