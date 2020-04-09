@@ -13,7 +13,7 @@ const productListWithImages = productList.map((product, k) => {
   const finalProduct = {};
 
   for (let i = 0; i < s3ImageQuantity; i++) {
-    const url = createImageUrl(s3FolderUrl, 'image', i, '.jpg');
+    const url = createImageUrl(s3FolderUrl, 'image', i + 1, '.jpg');
     imageUrls.push(url);
 
     if (i < s3sampleImageQuantity) {
@@ -31,6 +31,8 @@ const productListWithImages = productList.map((product, k) => {
   }
   return finalProduct;
 });
+
+console.log(productListWithImages);
 
 const url = 'mongodb+srv://root:rE9EvYIQe91rR9mt@cluster0-o5gfo.mongodb.net/Images?retryWrites=true&w=majority';
 

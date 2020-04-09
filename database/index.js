@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const url = 'mongodb+srv://root:rE9EvYIQe91rR9mt@cluster0-o5gfo.mongodb.net/Images?retryWrites=true&w=majority';
 
 mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, () => {
-  console.log('mongoose connected to mongo atlas');
 
 });
 
@@ -22,12 +21,12 @@ var Image = mongoose.model('Image', imageSchema);
 db.on('error', console.error.bind(console, 'connection error:'));
 
 const productQuery = (object, callback) => {
+  console.log('object', object);
   Image.findOne(object, (err, product) => {
     if (err) {
       callback(err, null);
 
     } else {
-      console.log('data', object);
       callback(null, product);
     }
   });
