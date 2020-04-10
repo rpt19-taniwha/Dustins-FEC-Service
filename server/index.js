@@ -8,14 +8,14 @@ const cors = require('cors');
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
-app.use(express.static(path.join(__dirname, '..', 'client/dist')));
+app.use(express.static(path.join(__dirname, '..', 'client', 'dist')));
 
 app.use(cors());
 
 app.get('/listing/:productNumber', (req, res) => {
-  res.sendFile(('index.html', {
-    root: path.join(__dirname, '..', 'client/dist/'),
-  }));
+  const url = `${path.join(__dirname, '..', 'client', 'dist', 'index.html')}`;
+    res.sendFile(url);
+    res.end();
 });
 
 app.get('/product/:productNumber', (req, res) => {
