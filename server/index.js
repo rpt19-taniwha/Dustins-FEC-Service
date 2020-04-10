@@ -1,21 +1,24 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const path = require('path');
 const {db, productQuery} = require('../database/index.js');
 const port = process.env.Port || 8000;
-const cors = require('cors');
 
+const rootPath = path.join(__dirname, '..', 'client/dist')
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
-app.use(express.static(path.join(__dirname, '..', 'client', 'dist')));
+app.use(express.static(rootPath));
 
 app.use(cors());
 
 app.get('/listing/:productNumber', (req, res) => {
-  const url = `${path.join(__dirname, '..', 'client', 'dist', 'index.html')}`;
-    res.sendFile(url);
-    res.end();
+    console.log('req.params', req.params);
+    console.log('rootpath', rootPath);
+    res.sendFile('index.html', {
+      root: `${rootPath}`
+    });
 });
 
 app.get('/product/:productNumber', (req, res) => {

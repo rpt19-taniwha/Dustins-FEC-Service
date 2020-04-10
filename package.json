@@ -13,10 +13,11 @@
   "dependencies": {
     "express": "^4.17.1",
     "mongoose": "^5.9.3",
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0"
+    "cors": "^2.8.5"
   },
   "devDependencies": {
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
     "@babel/core": "^7.8.7",
     "@babel/polyfill": "^7.8.7",
     "@babel/preset-env": "^7.8.7",
@@ -29,7 +30,6 @@
     "babel-core": "^6.26.3",
     "babel-jest": "^25.2.6",
     "babel-loader": "^8.0.6",
-    "cors": "^2.8.5",
     "css-loader": "^3.4.2",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",

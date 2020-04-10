@@ -32,6 +32,7 @@ class App extends React.Component {
 
   componentDidMount() {
     const productId = window.location.pathname.split('/')[2] || this.state.productNumber;
+    console.log('productId', productId);
       this.setState(({productNumber: productId}), () => {
         this.getUrls(this.state.productNumber);
       })

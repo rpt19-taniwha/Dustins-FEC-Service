@@ -4,6 +4,10 @@ node_modules/
 
 ## API keys ##
 
+
+## Webpack ##
+client/dist/bundle.js
+
 ## ESLINT ##
 .eslintrc.js
 
