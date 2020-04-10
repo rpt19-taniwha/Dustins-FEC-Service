@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const url = 'mongodb+srv://root:rE9EvYIQe91rR9mt@cluster0-o5gfo.mongodb.net/Images?retryWrites=true&w=majority';
 
 mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, () => {
-
+console.log('mongoose is connected');
 });
 
 const db = mongoose.connection;
