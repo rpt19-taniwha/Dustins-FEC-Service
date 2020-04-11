@@ -32,7 +32,7 @@ class App extends React.Component {
 
   componentDidMount() {
     const productId = window.location.pathname.split('/')[2] || this.state.productNumber;
-    console.log('productId', productId);
+    console.log('productId', productId);i
       this.setState(({productNumber: productId}), () => {
         console.log('state after productId', this.state);
         this.getUrls(this.state.productNumber);
@@ -40,10 +40,9 @@ class App extends React.Component {
   }
 
   getUrls(productNumber) {
-    // localhost:8000/product
-    // http://ec2-50-18-28-6.us-west-1.compute.amazonaws.com/product/
+ 
 
-    $.ajax(`http://localhost:8000/product/${productNumber}`, {
+    $.ajax(`http://ec2-50-18-28-6.us-west-1.compute.amazonaws.com:8000/product/${productNumber}`, {
       success: (imageObj) => {
         const parsedObj = JSON.parse(imageObj);
         const imageUrls = parsedObj.imageUrls;
