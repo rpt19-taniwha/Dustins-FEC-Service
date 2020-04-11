@@ -32,8 +32,6 @@ const productListWithImages = productList.map((product, k) => {
   return finalProduct;
 });
 
-console.log(productListWithImages);
-
 const url = 'mongodb+srv://root:rE9EvYIQe91rR9mt@cluster0-o5gfo.mongodb.net/Images?retryWrites=true&w=majority';
 
 mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true});

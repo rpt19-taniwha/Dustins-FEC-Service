@@ -32,16 +32,12 @@ class App extends React.Component {
 
   componentDidMount() {
     const productId = window.location.pathname.split('/')[2] || this.state.productNumber;
-    console.log('productId', productId);i
       this.setState(({productNumber: productId}), () => {
-        console.log('state after productId', this.state);
         this.getUrls(this.state.productNumber);
       })
   }
 
   getUrls(productNumber) {
- 
-
     $.ajax(`http://ec2-50-18-28-6.us-west-1.compute.amazonaws.com:8000/product/${productNumber}`, {
       success: (imageObj) => {
         const parsedObj = JSON.parse(imageObj);
@@ -50,8 +46,6 @@ class App extends React.Component {
           imageList: imageUrls,
           mainImage: imageUrls[0],
           mainImageIndex: 0
-        }, () => {
-          console.log('state after urls', this.state);
         });
       }
     });
