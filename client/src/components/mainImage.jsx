@@ -5,12 +5,11 @@ import Zoom from './popupZoom.jsx'
 
 
 
-const MainImage = ({ mainImage, arrowClick, mainImageHover }) => {
+const MainImage = ({ mainImage, arrowClick}) => {
   return (
   <Fragment>
     <Zoom
       mainImage={mainImage}
-      mainImageHover={mainImageHover}
     />
     <div id='favorites'>
       <FontAwesomeIcon icon='heart' />

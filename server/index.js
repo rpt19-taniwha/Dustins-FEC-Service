@@ -44,7 +44,6 @@ app.get('/mainImage/:productNumber', (req, res) => {
 
       res.end();
     }
-    db.close();
   });
 });
 

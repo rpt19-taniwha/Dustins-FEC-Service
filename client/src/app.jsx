@@ -5,9 +5,9 @@ import css from './style.css';
 import ImageView from './components/imageView.jsx';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
-import { faChevronRight, faChevronLeft, faHeart} from '@fortawesome/free-solid-svg-icons';
+import { faChevronRight, faChevronLeft, faHeart, faExpandAlt } from '@fortawesome/free-solid-svg-icons';
 
-library.add(fab, faChevronRight, faChevronLeft, faHeart);
+library.add(fab, faChevronRight, faChevronLeft, faHeart, faExpandAlt);
 
 
 
@@ -18,23 +18,32 @@ class App extends React.Component {
       productNumber: 549504785,
       imageList: ["https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy1.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy2.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy3.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy4.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy5.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy6.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy7.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy8.jpg"
     ],
-      mainImage: "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy1.jpg",
-      mainImageIndex: 0,
-      zoom: false
+      mainImage: {
+        url: "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy1.jpg",
+        index: 0
+      },
+      zoom: false,
+      hover: false
     };
 
     this.getUrls = this.getUrls = this.getUrls.bind(this);
     this.handleClickOnArrow = this.handleClickOnArrow.bind(this);
-    this.handleHoverOnThumbnail = this.handleHoverOnThumbnail.bind(this);
+    this.handleClickOnThumbnail = this.handleClickOnThumbnail.bind(this);
     this.handleHoverOnMainImage = this.handleHoverOnMainImage.bind(this);
 
   }
 
   componentDidMount() {
     const productId = window.location.pathname.split('/')[2] || this.state.productNumber;
+    console.log('')
       this.setState(({productNumber: productId}), () => {
         this.getUrls(this.state.productNumber);
-      })
+      });
+
+    // $.ajax(`http://ec2-50-18-28-6.us-west-1.compute.amazonaws.com:8000/mainImage/${productId}`, {
+    //   success: (imageObj) => {
+    //     console.log('imageObj', imageObj);
+    //   }});
   }
 
   getUrls(productNumber) {
@@ -44,51 +53,68 @@ class App extends React.Component {
         const imageUrls = parsedObj.imageUrls;
         this.setState({
           imageList: imageUrls,
-          mainImage: imageUrls[0],
-          mainImageIndex: 0
+          mainImage: {
+            url: imageUrls[0],
+            index: 0
+          }
         });
       }
     });
   }
 
   handleClickOnArrow(target) {
-    const currIndex = this.state.mainImageIndex;
+    const currIndex = this.state.mainImage.index;
     const imageList = this.state.imageList;
 
     if (target.className === 'nav-prev') {
       if (currIndex === 0) {
         this.setState({
-          mainImage: imageList[imageList.length - 1],
-          mainImageIndex: imageList.length - 1});
+          mainImage:
+            {
+              url: imageList[imageList.length - 1],
+              index: imageList.length - 1
+            }
+        });
       } else {
         this.setState({
-          mainImage: imageList[currIndex - 1],
-          mainImageIndex: currIndex -1});
+          mainImage: {
+            url: imageList[currIndex - 1],
+            index: currIndex - 1
+          }
+        });
       }
     }
 
     if (target.className === 'nav-next') {
       if (currIndex === imageList.length - 1) {
         this.setState({
-          mainImage: imageList[0],
-          mainImageIndex: 0
+          mainImage: {
+            url: imageList[0],
+            index: 0
+          }
         });
-
       } else {
         this.setState({
-          mainImage: imageList[currIndex + 1],
-          mainImageIndex: currIndex + 1
+          mainImage: {
+            url: imageList[currIndex + 1],
+            index: currIndex + 1
+          }
         });
       }
     }
   }
 
-  handleHoverOnThumbnail(target, index) {
-    this.setState({mainImage: target.src, mainImageIndex: index});
+  handleClickOnThumbnail(target, index) {
+    this.setState({mainImage:
+      {
+        url: target.src,
+        index: index
+      }
+    });
   }
 
   handleHoverOnMainImage() {
-    console.log('Hover');
+    console.log('hovering');
   }
 
   render() {
@@ -96,16 +122,16 @@ class App extends React.Component {
       <div id='normal'>
         <ImageView
           images={this.state.imageList}
-          mainImage={this.state.mainImage}
+          mainImage={this.state.mainImage.url}
+          isHovering={this.state.hover}
           arrowClick={this.handleClickOnArrow}
-          thumbnailHover={this.handleHoverOnThumbnail}
-          mainImageHover={this.handleHoverOnMainImage}
+          thumbnailClick={this.handleClickOnThumbnail}
+          hoverMainImage={this.handleHoverOnMainImage}
         />
       </div>
     );
   }
 }
-
 
 ReactDom.render(<App />, document.getElementById('image'));
 
