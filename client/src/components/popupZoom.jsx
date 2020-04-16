@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import Popup from 'reactjs-popup';
 
-const Zoom = ({ mainImage, mainImageHover }) => (
+const Zoom = ({ mainImage }) => (
     <Popup trigger={<img id='mainimage'src={mainImage} />} >
       <div className='overlay' >
       <img id='zoomimage'src={mainImage} />

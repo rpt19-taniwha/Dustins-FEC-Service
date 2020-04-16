@@ -1,7 +1,7 @@
 import React from 'react';
 import ImageThumbnail from './imageThumbnail.jsx';
 
-const ImageList = ({images, thumbnailHover}) => {
+const ImageList = ({images, thumbnailClick}) => {
   if (!images) {
     images = [];
   }
@@ -9,8 +9,8 @@ const ImageList = ({images, thumbnailHover}) => {
     <li className='imagelist'  key={image.toString()}>
       <ImageThumbnail
         image={image}
-        thumbnailHover={thumbnailHover}
-        index = {i}
+        thumbnailClick={thumbnailClick}
+        index={i}
       />
     </li>
   ));

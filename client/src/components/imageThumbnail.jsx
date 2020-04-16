@@ -4,10 +4,13 @@ import React, {Fragment} from 'react';
 
 
 
-const ImageThumbnail = ({image, thumbnailHover, index}) => {
+const ImageThumbnail = ({image, thumbnailClick, index}) => {
   return (
     <Fragment>
-      <img src={image} onMouseEnter={(e) => {thumbnailHover(e.target, index)}}/>
+      <img
+        src={image}
+        onClick={(e) => {thumbnailClick(e.target, index)}}
+      />
     </Fragment>
   );
 };
