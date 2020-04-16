@@ -5,9 +5,9 @@ import css from './style.css';
 import ImageView from './components/imageView.jsx';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
-import { faChevronRight, faChevronLeft, faHeart, faExpandAlt } from '@fortawesome/free-solid-svg-icons';
+import { faChevronRight, faChevronLeft, faHeart} from '@fortawesome/free-solid-svg-icons';
 
-library.add(fab, faChevronRight, faChevronLeft, faHeart, faExpandAlt);
+library.add(fab, faChevronRight, faChevronLeft, faHeart);
 
 
 
@@ -35,15 +35,9 @@ class App extends React.Component {
 
   componentDidMount() {
     const productId = window.location.pathname.split('/')[2] || this.state.productNumber;
-    console.log('')
       this.setState(({productNumber: productId}), () => {
         this.getUrls(this.state.productNumber);
       });
-
-    // $.ajax(`http://ec2-50-18-28-6.us-west-1.compute.amazonaws.com:8000/mainImage/${productId}`, {
-    //   success: (imageObj) => {
-    //     console.log('imageObj', imageObj);
-    //   }});
   }
 
   getUrls(productNumber) {
