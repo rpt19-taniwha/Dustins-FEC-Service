@@ -7,7 +7,7 @@
     "seed": "node ./database/seed.js",
     "start": "concurrently --kill-others \"npm run server-dev\" \"npm run build-prod\"",
     "server-dev": "nodemon ./server/index.js",
-    "build-prod": "webpack --config webpack.development.config.js",
+    "build-prod": "webpack --config webpack.production.config.js --display-modules",
     "build-dev": "webpack --config webpack.development.config.js -d --watch",
     "test": "jest --detectOpenHandles -u"
   },
