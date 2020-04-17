@@ -55,6 +55,22 @@ class App extends React.Component {
       }
     });
   }
+  // for undeployed testing
+  // getUrls(productNumber) {
+  //   $.ajax(`/product/${productNumber}`, {
+  //     success: (imageObj) => {
+  //       const parsedObj = JSON.parse(imageObj);
+  //       const imageUrls = parsedObj.imageUrls;
+  //       this.setState({
+  //         imageList: imageUrls,
+  //         mainImage: {
+  //           url: imageUrls[0],
+  //           index: 0
+  //         }
+  //       });
+  //     }
+  //   });
+  // }
 
   handleClickOnArrow(target) {
     const currIndex = this.state.mainImage.index;
