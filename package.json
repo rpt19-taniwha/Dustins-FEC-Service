@@ -5,10 +5,10 @@
   "main": "server/index.js",
   "scripts": {
     "seed": "node ./database/seed.js",
-    "start": "concurrently --kill-others \"npm run server-dev\" \"npm run build\"",
+    "start": "concurrently --kill-others \"npm run server-dev\" \"npm run build-prod\"",
     "server-dev": "nodemon ./server/index.js",
-    "build": "webpack",
-    "react-dev": "webpack --config webpack.config.js -d --watch",
+    "build-prod": "webpack --config webpack.development.config.js",
+    "build-dev": "webpack --config webpack.development.config.js -d --watch",
     "test": "jest --detectOpenHandles -u"
   },
   "dependencies": {
