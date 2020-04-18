@@ -18,6 +18,8 @@ class App extends React.Component {
       productNumber: 549504785,
       imageList: ["https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy1.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy2.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy3.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy4.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy5.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy6.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy7.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy8.jpg"
     ],
+      imageThumbnailList: ["https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SamplePhotosThumbnail/pokenatomy1.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SamplePhotosThumbnail/pokenatomy2.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SamplePhotosThumbnail/pokenatomy3.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SamplePhotosThumbnail/pokenatomy4.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SamplePhotosThumbnail/pokenatomy5.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SamplePhotosThumbnail/pokenatomy6.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SamplePhotosThumbnail/pokenatomy7.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SamplePhotosThumbnail/pokenatomy8.jpg"
+    ],
       mainImage: {
         url: "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy1.jpg",
         index: 0
@@ -40,13 +42,33 @@ class App extends React.Component {
       });
   }
 
+  getUrls(productNumber) {
+    $.ajax(`http://ec2-50-18-28-6.us-west-1.compute.amazonaws.com:8000/product/${productNumber}`, {
+      success: (imageObj) => {
+        const parsedObj = JSON.parse(imageObj);
+        const imageUrls = parsedObj.imageUrls;
+        this.setState({
+          imageList: imageUrls,
+          imageThumbnailList: imageThumbnailUrls,
+          mainImage: {
+            url: imageUrls[0],
+            index: 0
+          }
+        });
+      }
+    });
+  }
+
+  //request for testing on local host
+
   // getUrls(productNumber) {
-  //   $.ajax(`http://ec2-50-18-28-6.us-west-1.compute.amazonaws.com:8000/product/${productNumber}`, {
+  //   $.ajax(`/product/${productNumber}`, {
   //     success: (imageObj) => {
   //       const parsedObj = JSON.parse(imageObj);
   //       const imageUrls = parsedObj.imageUrls;
   //       this.setState({
   //         imageList: imageUrls,
+  //         imageThumbnailList: imageThumbnailUrls,
   //         mainImage: {
   //           url: imageUrls[0],
   //           index: 0
@@ -115,7 +137,7 @@ class App extends React.Component {
     return (
       <div id='normal'>
         <ImageView
-          images={this.state.imageList}
+          images={this.state.imageThumbnailList}
           mainImage={this.state.mainImage.url}
           isHovering={this.state.hover}
           arrowClick={this.handleClickOnArrow}
