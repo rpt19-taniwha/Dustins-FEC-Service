@@ -40,21 +40,21 @@ class App extends React.Component {
       });
   }
 
-  getUrls(productNumber) {
-    $.ajax(`http://ec2-50-18-28-6.us-west-1.compute.amazonaws.com:8000/product/${productNumber}`, {
-      success: (imageObj) => {
-        const parsedObj = JSON.parse(imageObj);
-        const imageUrls = parsedObj.imageUrls;
-        this.setState({
-          imageList: imageUrls,
-          mainImage: {
-            url: imageUrls[0],
-            index: 0
-          }
-        });
-      }
-    });
-  }
+  // getUrls(productNumber) {
+  //   $.ajax(`http://ec2-50-18-28-6.us-west-1.compute.amazonaws.com:8000/product/${productNumber}`, {
+  //     success: (imageObj) => {
+  //       const parsedObj = JSON.parse(imageObj);
+  //       const imageUrls = parsedObj.imageUrls;
+  //       this.setState({
+  //         imageList: imageUrls,
+  //         mainImage: {
+  //           url: imageUrls[0],
+  //           index: 0
+  //         }
+  //       });
+  //     }
+  //   });
+  // }
 
   handleClickOnArrow(target) {
     const currIndex = this.state.mainImage.index;
