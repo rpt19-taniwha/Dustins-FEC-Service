@@ -8,6 +8,9 @@ const port = process.env.Port || 8000;
 // for undeployed testing
 // const port = process.env.Port || 8001;
 
+//for testing on localhost
+// const port = process.env.Port || 8001;
+
 const rootPath = path.join(__dirname, '..', 'client/dist/')
 
 app.use(cors());
@@ -43,7 +46,7 @@ app.get('/mainImage/:productNumber', (req, res) => {
       throw err;
     } else {
       const data = {
-        mainImage: product.imageUrls[0]
+        mainImage: product.imageThumbnailUrls[0]
       };
       res.send(data);
 

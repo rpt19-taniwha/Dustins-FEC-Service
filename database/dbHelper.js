@@ -5,11 +5,13 @@ const createRandomQuantity = (max) => {
 };
 
 // creates an array of a random number of random urls ready to be attached to a product object
-const createRandomImageProfiles = (images, maxImgQty) => {
+const createRandomImageProfiles = (images, thumbnails, maxImgQty) => {
   //image urls
   let imgs = [...images];
+  let thmbs = [...thumbnails];
   // stores the image urls
   const singleProfileImages = [];
+  const singleProfileThumbnails = [];
 
   // the number of urls to store in singleProfileImages
   const numberOfImages = createRandomQuantity(maxImgQty) || 1;
@@ -18,21 +20,25 @@ const createRandomImageProfiles = (images, maxImgQty) => {
   for (let j = 0; j < numberOfImages; j++) {
     const index = createRandomQuantity(imgs.length);
     singleProfileImages.push(imgs[index]);
+    singleProfileThumbnails.push(thmbs[index]);
     //removes the used image from the imgs array to ensure no dupes
     imgs.splice(index, 1);
+    thmbs.splice(index, 1);
   }
-  return singleProfileImages;
+  return [singleProfileImages, singleProfileThumbnails];
 };
 
 // creates an array of ordered urls for our sample product pokenatomy
-const createSampleImageProfile = (images, numberOfImages) => {
+const createSampleImageProfile = (images, thumbnails, numberOfImages) => {
   // stores images urls for sample
   const singleProfileImages = [];
+  const singleProfileThumbnails = [];
   // populates singleProfileImages with urls
   for (let j = 0; j < numberOfImages; j++) {
     singleProfileImages.push(images[j]);
+    singleProfileThumbnails.push(images[j]);
   }
-  return singleProfileImages;
+  return [singleProfileImages, singleProfileThumbnails];
 };
 
 // constructs the full file path for each url from pieces to avoid hardcoding
