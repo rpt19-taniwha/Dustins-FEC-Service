@@ -30,6 +30,7 @@ class App extends React.Component {
     this.handleClickOnArrow = this.handleClickOnArrow.bind(this);
     this.handleClickOnThumbnail = this.handleClickOnThumbnail.bind(this);
     this.toggleExpand = this.toggleExpand.bind(this);
+    this.toggleZoom = this.toggleZoom.bind(this);
   }
 
   componentDidMount() {
@@ -112,6 +113,17 @@ class App extends React.Component {
     : this.setState({expand: true});
   }
 
+  toggleZoom(target) {
+    this.state.zoom
+    ? this.setState({zoom: false}, () => {
+      target.classList.add('zoom');
+    })
+    : this.setState({zoom: true}, () => {
+      target.classList.remove('zoom');
+    });
+
+  }
+
 
   render() {
     return (
@@ -124,6 +136,7 @@ class App extends React.Component {
           arrowClick={this.handleClickOnArrow}
           thumbnailClick={this.handleClickOnThumbnail}
           toggleExpand={this.toggleExpand}
+          toggleZoom={this.toggleZoom}
         />
       </div>
     );

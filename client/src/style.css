@@ -19,21 +19,21 @@ img#mainimage {
   border-radius: 4px;
   border: 1px solid black;
   overflow: visible;
+  cursor: nesw-resize;
+
+
 }
 
-img#mainimage {
-  cursor: nesw-resize;
-}
-.overlay {
+#expanded-overlay.overlay {
   position: absolute;
   top: 0;
   left: 0;
   background-color: rgba(128, 128, 128, 0.5);
 }
 
-.modal {
+#expanded-overlay.overlay .modal {
   position: fixed;
-  background-color: #fff;
+  background-color: gray;
   border-radius: 5;
   max-width: 500;
   min-height: 300;
@@ -131,4 +131,18 @@ img#zoomimage {
 
 .popup-arrow {
   display: none;
+}
+
+#pop-up-main {
+ cursor: zoom-in;
+}
+
+#pop-up-main.zoom {
+  padding: 50px;
+  margin: 0 auto;
+  cursor: zoom-out;
+}
+
+#pop-up-main.zoom:hover {
+  transform: scale(1.5);
 }
