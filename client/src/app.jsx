@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDom from 'react-dom';
+import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import css from './style.css';
 import ImageView from './components/imageView.jsx';
@@ -23,14 +23,13 @@ class App extends React.Component {
         index: 0
       },
       zoom: false,
-      hover: false
+      expand: false
     };
 
     this.getUrls = this.getUrls = this.getUrls.bind(this);
     this.handleClickOnArrow = this.handleClickOnArrow.bind(this);
     this.handleClickOnThumbnail = this.handleClickOnThumbnail.bind(this);
-    this.handleHoverOnMainImage = this.handleHoverOnMainImage.bind(this);
-
+    this.toggleExpand = this.toggleExpand.bind(this);
   }
 
   componentDidMount() {
@@ -39,9 +38,9 @@ class App extends React.Component {
         this.getUrls(this.state.productNumber);
       });
   }
-
+  // http://ec2-50-18-28-6.us-west-1.compute.amazonaws.com:8000
   getUrls(productNumber) {
-    $.ajax(`http://ec2-50-18-28-6.us-west-1.compute.amazonaws.com:8000/product/${productNumber}`, {
+    $.ajax(`/product/${productNumber}`, {
       success: (imageObj) => {
         const parsedObj = JSON.parse(imageObj);
         const imageUrls = parsedObj.imageUrls;
@@ -107,9 +106,12 @@ class App extends React.Component {
     });
   }
 
-  handleClickOnMainImage(target) {
-    
+  toggleExpand(target) {
+    this.state.expand
+    ? this.setState({expand: false})
+    : this.setState({expand: true});
   }
+
 
   render() {
     return (
@@ -117,16 +119,17 @@ class App extends React.Component {
         <ImageView
           images={this.state.imageList}
           mainImage={this.state.mainImage.url}
-          isHovering={this.state.hover}
+          isZoomed={this.state.zoom}
+          isExpanded={this.state.expand}
           arrowClick={this.handleClickOnArrow}
           thumbnailClick={this.handleClickOnThumbnail}
-          hoverMainImage={this.handleHoverOnMainImage}
+          toggleExpand={this.toggleExpand}
         />
       </div>
     );
   }
 }
 
-ReactDom.render(<App />, document.getElementById('image'));
+ReactDOM.render(<App />, document.getElementById('image'));
 
 export default App;
