@@ -4,10 +4,12 @@ import ReactDOM from 'react-dom';
 const Modal = ({children, open, onClose}) => (
   open
     ? ReactDOM.createPortal(
-        <div className='modal'>
-          <div className='modal-close' onClick={() => {onClose()}}>&times;</div>
-            {children}
-          </div>,
+        <div className = 'overlay'>
+          <div className='modal'>
+            <div className='modal-close' onClick={() => {onClose()}}>&times;</div>
+              {children}
+          </div>
+        </div>,
       document.body
     ): null
 );
