@@ -1,13 +1,14 @@
 import React, { Fragment } from 'react';
-import Popup from 'reactjs-popup';
+// import Popup from 'reactjs-popup';
 
-const Zoom = ({ mainImage }) => (
-    <Popup trigger={<img id='mainimage'src={mainImage} />} >
+const PopupZoom = ({ mainImage }) => (
+  <Fragment>
+    <img id='mainimage'src={mainImage} />
       <div className='overlay' >
       <img id='zoomimage'src={mainImage} />
       </div>
-    </Popup>
+  </Fragment>
 );
 
 
-export default Zoom;
+export default PopupZoom;

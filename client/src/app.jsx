@@ -107,8 +107,8 @@ class App extends React.Component {
     });
   }
 
-  handleHoverOnMainImage() {
-    console.log('hovering');
+  handleClickOnMainImage(target) {
+    
   }
 
   render() {
