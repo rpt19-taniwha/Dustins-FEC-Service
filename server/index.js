@@ -4,7 +4,7 @@ const cors = require('cors');
 const path = require('path');
 const compression = require('compression');
 const {db, productQuery} = require('../database/index.js');
-const port = process.env.Port || 8000;
+// const port = process.env.Port || 8000;
 
 // from localhost
 const port = process.env.Port || 8001;

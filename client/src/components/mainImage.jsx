@@ -16,7 +16,7 @@ const MainImage = ({ images, mainImage, isZoomed, isExpanded, arrowClick, thumbn
                 <div id='popup-main-overlay'>
                   <img
                     src={mainImage}
-                    onClick={ (e) => { toggleZoom(e.target) }}
+                    onClick={ (e) => { console.log('clicked', e.target), toggleZoom(e.target) }}
                   />
                 </div>
                 <div className='nav-prev' onClick={(e) => { arrowClick(e.currentTarget) }} >
