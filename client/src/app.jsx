@@ -41,7 +41,6 @@ class App extends React.Component {
         this.getUrls(this.state.productNumber);
       });
   }
-  // http://ec2-50-18-28-6.us-west-1.compute.amazonaws.com:8000
   getUrls(productNumber) {
     $.ajax(`http://ec2-50-18-28-6.us-west-1.compute.amazonaws.com:8000/product/${productNumber}`, {
       success: (imageObj) => {
