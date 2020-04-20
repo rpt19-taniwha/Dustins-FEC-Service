@@ -6,7 +6,7 @@ node_modules/
 
 
 ## Webpack ##
-
+client/dist/bundle.js
 ## ESLINT ##
 .eslintrc.js
 
