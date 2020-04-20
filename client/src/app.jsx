@@ -41,43 +41,9 @@ class App extends React.Component {
         this.getUrls(this.state.productNumber);
       });
   }
-  getUrls(productNumber) {
-    $.ajax(`http://ec2-50-18-28-6.us-west-1.compute.amazonaws.com:8000/product/${productNumber}`, {
-      success: (imageObj) => {
-        const parsedObj = JSON.parse(imageObj);
-        const imageUrls = parsedObj.imageUrls;
-        this.setState({
-          imageList: imageUrls,
-          imageThumbnailList: imageThumbnailUrls,
-          mainImage: {
-            url: imageUrls[0],
-            index: 0
-          }
-        });
-      }
-    });
-  }
-  // for undeployed testing
-  // getUrls(productNumber) {
-  //   $.ajax(`/product/${productNumber}`, {
-  //     success: (imageObj) => {
-  //       const parsedObj = JSON.parse(imageObj);
-  //       const imageUrls = parsedObj.imageUrls;
-  //       this.setState({
-  //         imageList: imageUrls,
-  //         mainImage: {
-  //           url: imageUrls[0],
-  //           index: 0
-  //         }
-  //       });
-  //     }
-  //   });
-  // }
-
-  //request for testing on local host
 
   // getUrls(productNumber) {
-  //   $.ajax(`/product/${productNumber}`, {
+  //   $.ajax(`http://ec2-50-18-28-6.us-west-1.compute.amazonaws.com:8000/product/${productNumber}`, {
   //     success: (imageObj) => {
   //       const parsedObj = JSON.parse(imageObj);
   //       const imageUrls = parsedObj.imageUrls;
@@ -92,6 +58,26 @@ class App extends React.Component {
   //     }
   //   });
   // }
+
+
+  //request for testing on local host
+
+  getUrls(productNumber) {
+    $.ajax(`/product/${productNumber}`, {
+      success: (imageObj) => {
+        const parsedObj = JSON.parse(imageObj);
+        const imageUrls = parsedObj.imageUrls;
+        this.setState({
+          imageList: imageUrls,
+          imageThumbnailList: imageThumbnailUrls,
+          mainImage: {
+            url: imageUrls[0],
+            index: 0
+          }
+        });
+      }
+    });
+  }
 
   handleClickOnArrow(target) {
     const currIndex = this.state.mainImage.index;

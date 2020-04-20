@@ -15,13 +15,4 @@ const Modal = ({children, open, onClose}) => (
 );
 
 
-
-
-
-
-// ({ images, mainImage, isZoomed, arrowClick, thumbnailClick, mainImageClick }) => (
-
-// );
-
-
 export default Modal;
