@@ -3,9 +3,7 @@ import MainImage from './mainImage.jsx';
 import ImageList from './imageList.jsx';
 
 
-
-
-const ImageView = ({images, mainImage, isHovering, arrowClick, thumbnailClick, hoverMainImage}) => (
+const ImageView = ({images, mainImage, isZoomed, isExpanded, arrowClick, thumbnailClick, toggleExpand, toggleZoom}) => (
   <div id='imageviewcontainer'>
     <ul id='thumbnailcontainer'>
       <ImageList
@@ -15,8 +13,14 @@ const ImageView = ({images, mainImage, isHovering, arrowClick, thumbnailClick, h
     </ul>
     <div id='mainimagecontainer'>
       <MainImage
+        images={images}
         mainImage={mainImage}
+        isZoomed={isZoomed}
+        isExpanded={isExpanded}
         arrowClick={arrowClick}
+        thumbnailClick={thumbnailClick}
+        toggleExpand={toggleExpand}
+        toggleZoom={toggleZoom}
       />
     </div>
   </div>
