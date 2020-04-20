@@ -67,6 +67,7 @@ class App extends React.Component {
       success: (imageObj) => {
         const parsedObj = JSON.parse(imageObj);
         const imageUrls = parsedObj.imageUrls;
+        const imageThumbnailUrls = parsedObj.imageThumbnailUrls;
         this.setState({
           imageList: imageUrls,
           imageThumbnailList: imageThumbnailUrls,
@@ -137,11 +138,11 @@ class App extends React.Component {
   }
 
   toggleZoom(target) {
-    this.state.zoom
-    ? this.setState({zoom: false}, () => {
-      target.classList.add('zoom');
-    })
-    : this.setState({zoom: true}, () => {
+    console.log('clicked', this.state);
+    console.log('target', target);
+    !this.state.zoom
+    ? (target.classList.add('zoom'), this.setState({zoom: true}))
+    : this.setState({zoom: false}, () => {
       target.classList.remove('zoom');
     });
 

@@ -145,6 +145,8 @@ div.nav-prev, div.nav-next, div#favorites, li.imagelist img {
   margin: 0 auto;
   cursor: zoom-out;
   overflow: hidden;
+  transition: transform .5s ease-in-out;
+
 }
 
 #pop-up-main img.zoom:hover {
