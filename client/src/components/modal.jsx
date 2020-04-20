@@ -13,7 +13,6 @@ const Modal = ({children, open, onClose}) => (
       document.body
     ): null
 );
-1
 
 
 

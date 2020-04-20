@@ -12,24 +12,29 @@ const MainImage = ({ images, mainImage, isZoomed, isExpanded, arrowClick, thumbn
               onClose={toggleExpand}
               isZoomed={isZoomed}
             >
-              <img
-                id='pop-up-main'
-                src={mainImage}
-                onClick={
-                  (e) => { toggleZoom(e.target) }
-                }/>
+              <div id='pop-up-main'>
+                <div id='popup-main-overlay'>
+                  <img
+                    src={mainImage}
+                    onClick={ (e) => { toggleZoom(e.target) }}
+                  />
+                </div>
                 <div className='nav-prev' onClick={(e) => { arrowClick(e.currentTarget) }} >
                   <FontAwesomeIcon icon='chevron-left' />
                 </div>
                 <div className='nav-next' onClick={(e) => { arrowClick(e.currentTarget) }} >
                   <FontAwesomeIcon icon='chevron-right' />
                 </div>
-              <ul id='pop-up-image-list'>
-              < ImageList
-                images={images}
-                thumbnailClick={thumbnailClick}
-              />
-              </ul>
+              </div >
+              <div id='pop-up-image-list-container'>
+                <ul id='pop-up-image-list'>
+                  < ImageList
+                    images={images}
+                    thumbnailClick={thumbnailClick}
+                  />
+                </ul>
+
+              </div>
             </Modal>
           </Fragment>
         : null
