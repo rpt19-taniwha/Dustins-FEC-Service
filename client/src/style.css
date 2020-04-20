@@ -135,7 +135,7 @@ div.nav-prev, div.nav-next, div#favorites, li.imagelist img {
 }
 
 #popup-main-overlay img{
-  max-width: 1300;
+  max-width: 100%;
   height: auto;
   justify-items: center;
 }
