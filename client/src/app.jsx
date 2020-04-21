@@ -125,7 +125,7 @@ class App extends React.Component {
   }
 
   handleClickOnThumbnail(target, index) {
-    const imageList = this.state.iamgeList
+    const imageList = this.state.imageList
     this.setState({mainImage:
       {
         url: imageList[index],
