@@ -16,7 +16,7 @@ const MainImage = ({ images, mainImage, isZoomed, isExpanded, arrowClick, thumbn
                 <div id='popup-main-overlay'>
                   <img
                     src={mainImage}
-                    onClick={ (e) => { console.log('clicked', e.target), toggleZoom(e.target) }}
+                    onClick={ (e) => { toggleZoom(e.target) }}
                   />
                 </div>
                 <div className='nav-prev' onClick={(e) => { arrowClick(e.currentTarget) }} >
@@ -42,7 +42,7 @@ const MainImage = ({ images, mainImage, isZoomed, isExpanded, arrowClick, thumbn
 
   return (
     <Fragment>
-      <div id='mainimagecontainer'>
+      <div id='mainimagebackground'>
         <img id='mainimage' onClick={(e) => {toggleExpand()}} src={mainImage} />
       </div>
         {popUp(isExpanded)}
