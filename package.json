@@ -5,7 +5,7 @@
   "main": "server/index.js",
   "scripts": {
     "seed": "node ./database/seed.js",
-    "start": "concurrently --kill-others \"npm run server-prod\" \"npm run build-prod\"",
+    "start": "concurrently --kill-others \"npm run server-dev\" \"npm run build-dev\"",
     "server-dev": "nodemon ./server/index.js",
     "server-prod": "node ./server/index.js",
     "build-prod": "webpack --config webpack.production.config.js --display-modules",
