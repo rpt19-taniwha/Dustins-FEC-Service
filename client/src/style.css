@@ -11,14 +11,21 @@ div#mainimagecontainer {
   flex: 6 1 0%;
 }
 
+#mainimagecontainer #mainimagebackground {
+  margin-bottom: 6px;
+  margin-right: 6px;
+  width: 100%;
+  flex: 6 1 0%;
+}
+
+
+
 img#mainimage {
   position: absolute;
-  width: 100%;
-  max-width: 100%;
-  height: auto;
+  width: auto;
+  height: 100%;
   border-radius: 4px;
   border: 1px solid black;
-  overflow: visible;
   cursor: nesw-resize;
 
 
@@ -40,14 +47,17 @@ img#mainimage {
   margin: 0px auto;
   display: flex !important;
   justify-content: center;
+  overflow: hidden;
 
 
 }
 
 ul#thumbnailcontainer {
-  margin-block-start: 0;
+  border: none;
+}
+
+#imageviewcontainer ul#thumbnailcontainer {
   list-style: none;
-  justify-content: flex-start;
 }
 
 li.imagelist {
@@ -57,7 +67,6 @@ li.imagelist {
   overflow: hidden;
   margin-bottom: 6px;
   margin-right: 6px;
-  border: 2px solid black;
   border-radius: 4px;
 }
 
@@ -125,6 +134,8 @@ div.nav-prev, div.nav-next, div#favorites, li.imagelist img {
 #pop-up-main {
   max-width: 100%;
   max-height: 100%;
+  width: 75%;
+  height: 50%;
   cursor: zoom-in;
   padding: 10% 0;
   position: relative;
@@ -141,13 +152,23 @@ div.nav-prev, div.nav-next, div#favorites, li.imagelist img {
   justify-items: center;
 }
 
+#pop-up-image-list-container {
+  padding: 10% 0;
+  position: relative;
+}
+
+#pop-up-image-list-container #pop-up-image-list {
+  margin-block-start: 0;
+  list-style: none;
+  justify-content: center;
+}
+
 #pop-up-main img.zoom {
   padding: 50px;
   margin: 0 auto;
   cursor: zoom-out;
   overflow: hidden;
   transition: transform .5s ease-in-out;
-
 }
 
 #pop-up-main img.zoom:hover {
