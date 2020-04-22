@@ -6,6 +6,7 @@ import ImageView from './components/imageView.jsx';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { faChevronRight, faChevronLeft, faHeart} from '@fortawesome/free-solid-svg-icons';
+import { get } from 'mongoose';
 
 library.add(fab, faChevronRight, faChevronLeft, faHeart);
 
@@ -33,13 +34,6 @@ class App extends React.Component {
     this.handleClickOnThumbnail = this.handleClickOnThumbnail.bind(this);
     this.toggleExpand = this.toggleExpand.bind(this);
     this.toggleZoom = this.toggleZoom.bind(this);
-  }
-
-  componentDidMount() {
-    const productId = window.location.pathname.split('/')[2] || this.state.productNumber;
-      this.setState(({productNumber: productId}), () => {
-        this.getUrls(this.state.productNumber);
-      });
   }
 
 
