@@ -1,34 +1,35 @@
 
-#image #imageviewcontainer {
+#imageviewcontainer {
   display: flex;
 }
 
-#image #mainimagecontainer {
+#mainimagecontainer {
   margin-bottom: 6px;
   margin-right: 6px;
   position: relative;
   height: 600px;
   width: 794px;
   align-self:center;
+  border: 1px solid red;
 }
 
-#image #mainimagebackground {
+#mainimagebackground {
   height: 400px;
   width: 794px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid green;
+  border: 1px solid blue;
 }
 
-#image #mainimage {
+#mainimage {
   max-height: 400px;
   justify-items: center;
   border-radius: 4px;
   cursor: nesw-resize;
 }
 
-#image #expanded-overlay.overlay {
+#expanded-overlay.overlay {
   position: fixed;
   width:100%;
   height:100%;
@@ -37,7 +38,7 @@
   background-color: rgba(63, 63, 63, 0.9);
 }
 
-#image .modal {
+.modal {
   position: relative;
   border-radius: 5px;
   width: 76%;
@@ -47,15 +48,15 @@
   overflow: hidden;
 }
 
-#image #thumbnailcontainer {
+#thumbnailcontainer {
   border: none;
 }
 
-#image ul#thumbnailcontainer {
+ul#thumbnailcontainer {
   list-style: none;
 }
 
-#image li.imagelist {
+li.imagelist {
   width: 75px;
   height: 75px;
   position: relative;
@@ -65,7 +66,7 @@
   border-radius: 4px;
 }
 
-#image li.imagelist img {
+li.imagelist img {
   width: 150px;
   height: auto;
   position: absolute;
@@ -73,39 +74,36 @@
   left: 50%;
   transform: translate(-50%, -50%);
   opacity: .6;
+
 }
 
-#image li.imagelist img:hover {
+li.imagelist img:hover {
   opacity: 1;
 }
 
-#image #pop-up-image-list #li img {
+#pop-up-image-list #li img {
   width: 100px;
   height: 100px;
 }
 
-#image div#favorites {
+div#favorites {
   position:absolute;
   right: 2%;
   top: 3%;
 }
 
-#image div#favorites .svg-inline--fa {
+div#favorites .svg-inline--fa {
   background: #fff;
   border-radius: 50%;
   padding: 10px;
 }
 
-#image div.nav-prev, div.nav-next{
+div.nav-prev, div.nav-next{
   position: absolute;
   top: 50%;
-  transform: translate(-50%, -50%);
 }
 
-#image div.nav-prev {
-  -webkit-box-shadow: 3px 5px 28px 0px rgba(0,0,0,0.22);
-  -moz-box-shadow: 3px 5px 28px 0px rgba(0,0,0,0.22);
-  box-shadow: 3px 5px 28px 0px rgba(0,0,0,0.22);
+div.nav-prev {
   left: 5%;
   background: #fff;
   border-radius: 50%;
@@ -113,10 +111,7 @@
   padding: 12px 16px;
 }
 
-#image div.nav-next {
-  -webkit-box-shadow: 3px 5px 28px 0px rgba(0,0,0,0.22);
-  -moz-box-shadow: 3px 5px 28px 0px rgba(0,0,0,0.22);
-  box-shadow: 3px 5px 28px 0px rgba(0,0,0,0.22);
+div.nav-next {
   right: 5%;
   background: #fff;
   border-radius: 50%;
@@ -124,23 +119,34 @@
   padding: 12px 16px;
 }
 
-#image div.nav-prev, div.nav-next, div#favorites, li.imagelist img {
+div.nav-prev, div.nav-next, div#favorites, li.imagelist img {
   cursor: pointer;
 }
 
-#image div.nav-prev, div.nav-next, :hover {
-  transition: opacity 1s;
-    transition-property: opacity;
-    transition-duration: 1s;
-    transition-timing-function: ease;
-    transition-delay: 0s;
+div.nav-prev, div.nav-next {
+  -webkit-box-shadow: 3px 5px 28px 0px rgba(0,0,0,0.22);
+  -moz-box-shadow: 3px 5px 28px 0px rgba(0,0,0,0.22);
+  box-shadow: 3px 5px 28px 0px rgba(0,0,0,0.22);
+  opacity: 1;
+  transition: box-shadow 500ms;
+
+
+
 }
 
-#image .popup-arrow {
+div.nav-prev:hover, div.nav-next:hover {
+  -webkit-box-shadow: 3px 5px 42px 0px rgba(0,0,0,0.40);
+  -moz-box-shadow: 3px 5px 42px 0px rgba(0,0,0,0.40);
+  box-shadow: 3px 5px 42px 0px rgba(0,0,0,0.40);
+  transform: scale(1.05);
+  transition: ease-in-out .25s;
+}
+
+.popup-arrow {
   display: none;
 }
 
-#image #pop-up-main {
+#pop-up-main {
   max-width: 100%;
   max-height: 100%;
   width: 75%;
@@ -148,31 +154,30 @@
   cursor: zoom-in;
   padding: 10% 0;
   position: relative;
-  overflow: hidden;
 }
 
-#image #popup-main-overlay {
+#popup-main-overlay {
   position: relative;
 }
 
-#image #popup-main-overlay img{
+#popup-main-overlay img{
   max-width: 100%;
   height: auto;
   justify-items: center;
 }
 
-#image #pop-up-image-list-container {
+#pop-up-image-list-container {
   padding: 10% 0;
   position: relative;
 }
 
-#image #pop-up-image-list-container #pop-up-image-list {
+#pop-up-image-list-container #pop-up-image-list {
   margin-block-start: 0;
   list-style: none;
   justify-content: center;
 }
 
-#image #pop-up-main img.zoom {
+#pop-up-main img.zoom {
   padding: 50px;
   margin: 0 auto;
   cursor: zoom-out;
@@ -180,6 +185,6 @@
   transition: transform .5s ease-in-out;
 }
 
-#image #pop-up-main img.zoom:hover {
+#pop-up-main img.zoom:hover {
   transform: scale(1.5);
 }

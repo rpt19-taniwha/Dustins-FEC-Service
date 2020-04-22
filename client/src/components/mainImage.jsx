@@ -44,17 +44,17 @@ const MainImage = ({ images, mainImage, isZoomed, isExpanded, arrowClick, thumbn
     <Fragment>
       <div id='mainimagebackground'>
         <img id='mainimage' onClick={(e) => {toggleExpand()}} src={mainImage} />
+        <div id='favorites'>
+          <FontAwesomeIcon icon='heart' />
+        </div>
+        <div className='nav-prev' onClick={(e) => { arrowClick(e.currentTarget) }} >
+          <FontAwesomeIcon icon='chevron-left' />
+        </div>
+        <div className='nav-next' onClick={(e) => { arrowClick(e.currentTarget) }} >
+          <FontAwesomeIcon icon='chevron-right' />
+        </div>
       </div>
         {popUp(isExpanded)}
-      <div id='favorites'>
-        <FontAwesomeIcon icon='heart' />
-      </div>
-      <div className='nav-prev' onClick={(e) => { arrowClick(e.currentTarget) }} >
-        <FontAwesomeIcon icon='chevron-left' />
-      </div>
-      <div className='nav-next' onClick={(e) => { arrowClick(e.currentTarget) }} >
-        <FontAwesomeIcon icon='chevron-right' />
-      </div>
     </Fragment>
   );
 };
