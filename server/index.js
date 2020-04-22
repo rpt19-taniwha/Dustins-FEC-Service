@@ -43,12 +43,11 @@ app.get('/mainImage/:productNumber', (req, res) => {
     if (err) {
       throw err;
     } else {
-      const data = {
-        mainImage: product.imageThumbnailUrls[0]
-      };
-      res.send(data);
+      console.log('keys', product._doc.imageThumbnailUrls[0]);
 
-      res.end();
+      const mainImageThumbnail = product._doc.imageThumbnailUrls[0]
+
+      res.end(mainImageThumbnail);
     }
   });
 });
