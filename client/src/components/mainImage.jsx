@@ -12,7 +12,7 @@ const MainImage = ({ images, mainImage, isZoomed, isExpanded, arrowClick, thumbn
               onClose={toggleExpand}
               isZoomed={isZoomed}
             >
-              <div id='pop-up-main'>
+              <div id='pop-up'>
                 <div id='popup-main-overlay'>
                   <img
                     src={mainImage}
