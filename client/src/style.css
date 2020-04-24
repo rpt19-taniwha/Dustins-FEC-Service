@@ -4,7 +4,6 @@ body {
 
 #image #imageviewcontainer {
   display: flex;
-  border: 1px solid aqua;
   align-items: center;
   justify-content: center;
 
@@ -14,7 +13,6 @@ body {
   position: relative;
   height: 400px;
   width: 794px;
-  border: 1px solid red;
 }
 
 #image #mainimagebackground {
@@ -23,7 +21,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid blue;
 }
 
 #image #mainimage {
@@ -35,7 +32,6 @@ body {
 
 
 #image #thumbnailcontainer {
-  border: 1px solid orange;
   height: 400px;
   overflow: scroll;
   justify-content: center;
@@ -54,9 +50,6 @@ body {
   border-radius: 4px;
 }
 
-#image .current-selection {
-  border: 4px black solid;
-}
 #image .imagelist img {
   opacity: .6;
 }
@@ -64,7 +57,6 @@ body {
 li.imagelist img:hover {
   opacity: 1;
 }
-
 
 div#favorites {
   position: absolute;
@@ -129,18 +121,15 @@ div.nav-prev:hover, div.nav-next:hover {
 }
 
 .modal {
-  border: 1px white solid;
   border-radius: 5px;
   width: 76%;
   margin: 0px auto;
   display: flex;
   justify-content: center;
   overflow: hidden;
-  /* height: 80vh; */
 }
 
 #pop-up {
-  border: 1px orange solid;
   max-width: 100%;
   max-height: 100%;
   width: 85%;
@@ -151,12 +140,10 @@ div.nav-prev:hover, div.nav-next:hover {
 }
 
 #popup-main-overlay {
-  border: 3px solid yellow;
   position: relative;
 }
 
 #popup-main-overlay img{
-  border: 1px solid blue;
   max-width: 100%;
   height: auto;
   justify-items: center;
@@ -165,7 +152,6 @@ div.nav-prev:hover, div.nav-next:hover {
 #pop-up-image-list-container {
   flex-direction: column;
   max-height: 100%;
-  border: 1px solid green;
   margin: 0 auto;
   align-items: center;
 }
@@ -214,14 +200,9 @@ img.zoom:hover {
 }
 
 .modal-close {
-  border: 1px brown solid;
   position: absolute;
   background-color: white;
   border-radius: 50%;
   padding: 10px 14px;
   right: 0;
-}
-
-#pop-up .current-selection {
-  border: 4px white solid;
 }

@@ -34,7 +34,6 @@ class App extends React.Component {
     this.handleClickOnThumbnail = this.handleClickOnThumbnail.bind(this);
     this.toggleExpand = this.toggleExpand.bind(this);
     this.toggleZoom = this.toggleZoom.bind(this);
-    this.handleSelectedImageClass = this.handleSelectedImageClass.bind(this);
   }
 
   componentDidMount() {
@@ -43,39 +42,6 @@ class App extends React.Component {
         this.getUrls(this.state.productNumber);
       });
     }
-
-    handleSelectedImageClass(parentElement = undefined) {
-      const currentElement = document.getElementsByClassName('current-selection')[0];
-      console.log('parentElement', parentElement);
-      // if there is a current-selection class remove it
-      if (currentElement) {
-        currentElement.classList.remove('current-selection');
-      }
-      // if there wasn't a parent selected and passed it, the current selection must be initialized
-      // select the thumbnail image that corresponds to the current main image
-      // distinguish between whether the modal is up or not.
-      if (!parentElement) {
-        const popUpActive = this.state.expand;
-        if (popUpActive) {
-          const initiallySelectedElement = document.getElementById('pop-up-image-list').childNodes[0];
-          initiallySelectedElement.classList.add('current-selection');
-        } else {
-          const initiallySelectedElement = document.getElementById('thumbnailcontainer').childNodes[0];
-          initiallySelectedElement.classList.add('current-selection');
-        }
-      } else {
-        // if there are more than one elements selected show me it
-        if (currentElement && document.getElementsByClassName('current-selection').length > 0) {
-          console.log('error too many selected Elements', document.getElementsByClassName('imagelist'))
-        // if there was already an image selected add a class to the new selection
-        }
-        parentElement.classList.add('current-selection');
-
-
-      }
-    }
-
-
 
   //  getUrls(productNumber) {
   //   $.ajax(`http://ec2-50-18-28-6.us-west-1.compute.amazonaws.com:8000/product/${productNumber}`, {
@@ -90,8 +56,6 @@ class App extends React.Component {
   //           url: imageUrls[0],
   //           index: 0
   //         }
-  //       }, () => {
-  //         this.handleSelectedImageClass(null, this.state.mainImage.index);
   //       });
   //     }
   //   });
@@ -113,15 +77,12 @@ class App extends React.Component {
             url: imageUrls[0],
             index: 0
           }
-        }, () => {
-          this.handleSelectedImageClass();
         });
       }
     });
   }
 
   handleClickOnArrow(target) {
-    const isModal = this.state.mainImage.expand;
     const currIndex = this.state.mainImage.index;
     const imageList = this.state.imageList;
 
@@ -133,18 +94,7 @@ class App extends React.Component {
               url: imageList[imageList.length - 1],
               index: imageList.length - 1
             }
-        }, () => {
-          if (isModal) {
-            const grandParent = document.getElementById('pop-up-image-list');
-            const parent = grandparent.childNodes[this.state.mainImage.index];
-            this.handleSelectedImageClass(parent);
-          } else {
-            const grandParent = document.getElementById('thumbnailContainer');
-            const parent = grandparent.childNodes[this.state.mainImage.index];
-            this.handleSelectedImageClass(parent);
-          }
         });
-
       } else {
         this.setState({
           mainImage: {
@@ -175,9 +125,7 @@ class App extends React.Component {
   }
 
   handleClickOnThumbnail(target, index) {
-    const parent = target.parentElement;
     const imageList = this.state.imageList;
-    this.handleSelectedImageClass(parent);
     this.setState({mainImage:
       {
         url: imageList[index],
@@ -187,20 +135,10 @@ class App extends React.Component {
   }
 
   toggleExpand() {
-    // console.log('toggleExpand called');
-    // const selectedIndex = this.state.mainImage.index;
     this.state.expand
     ? this.setState({expand: false}, () => {
-      // this.handleSelectedImageClass();
-      // console.log('allThumbnailEl', allThumbnailEl);
-      // const selectedElement = allThumbnailEl(selectedIndex);
-      // console.log('selectedElement', selectedElement.parentElement);
     })
     : this.setState({expand: true}, () => {
-      // this.handleSelectedImageClass();
-      // const allThumbnailEl = document.getElementById('pop-up-image-list');
-      // const selectedElement = allThumbnailEl(selectedIndex);
-      // console.log('selectedElement', selectedElement.parentElement);
     });
   }
 
