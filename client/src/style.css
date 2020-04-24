@@ -1,11 +1,10 @@
-body {
-  overflow: hidden;
-}
+
 
 #image #imageviewcontainer {
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 
 }
 
@@ -54,7 +53,7 @@ body {
   opacity: .6;
 }
 
-li.imagelist img:hover {
+#image .imagelist img:hover {
   opacity: 1;
 }
 
@@ -91,7 +90,7 @@ div.nav-next {
   padding: 12px 16px;
 }
 
-div.nav-prev, div.nav-next, div#favorites, ul.imagelist img {
+.nav-prev, .nav-next, #favorites, .imagelist img {
   cursor: pointer;
 }
 
