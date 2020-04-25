@@ -1,14 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import $ from 'jquery';
-
 import ImageView from './components/imageView.jsx';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { fab } from '@fortawesome/free-brands-svg-icons';
-import { faChevronRight, faChevronLeft, faHeart} from '@fortawesome/free-solid-svg-icons';
-import { get } from 'mongoose';
 
-library.add(fab, faChevronRight, faChevronLeft, faHeart);
 
 
 
@@ -137,8 +130,10 @@ class App extends React.Component {
   toggleExpand() {
     this.state.expand
     ? this.setState({expand: false}, () => {
+      document.body.style.overflow = 'visible'
     })
     : this.setState({expand: true}, () => {
+      document.body.style.overflow = 'hidden';
     });
   }
 

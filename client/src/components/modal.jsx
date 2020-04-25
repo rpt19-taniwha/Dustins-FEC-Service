@@ -6,8 +6,12 @@ const Modal = ({children, open, onClose}) => (
     ? ReactDOM.createPortal(
         <div id='expanded-overlay' className = 'overlay'>
           <div className='modal'>
-            <div className='modal-close' onClick={() => {onClose()}}>&times;</div>
-              {children}
+            <div id='close-container'>
+              <div className='modal-close' onClick={() => {onClose()}}>&times;</div>
+            </div>
+              <div id='modal-content'>
+                {children}
+              </div>
           </div>
         </div>,
       document.body

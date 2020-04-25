@@ -5,12 +5,14 @@ import ImageList from './imageList.jsx';
 
 const ImageView = ({images, mainImage, isZoomed, isExpanded, arrowClick, thumbnailClick, toggleExpand, toggleZoom}) => (
   <div id='imageviewcontainer'>
-    <ul id='thumbnailcontainer'>
-      <ImageList
-        images={images}
-        thumbnailClick={thumbnailClick}
-      />
-    </ul>
+    <div id='thumbnailcontainer'>
+      <ul>
+        <ImageList
+          images={images}
+          thumbnailClick={thumbnailClick}
+        />
+      </ul>
+    </div>
     <div id='mainimagecontainer'>
       <MainImage
         images={images}

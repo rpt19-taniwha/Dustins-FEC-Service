@@ -2,41 +2,46 @@
 
 #image #imageviewcontainer {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-
+  justify-content: start;
+  flex: 1;
 }
 
 #image #mainimagecontainer {
   position: relative;
-  height: 400px;
-  width: 794px;
+
 }
 
 #image #mainimagebackground {
-  height: 400px;
-  width: 794px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: auto;
 }
 
 #image #mainimage {
-  max-height: 400px;
+  max-height: 370px;
   justify-items: center;
   border-radius: 4px;
-  cursor: nesw-resize;
 }
 
+#image #cursor-styling {
+  cursor: nesw-resize;
+  border-radius: 4px;
+  background-color: white;
+  padding: 10px, 10px;
+}
 
 #image #thumbnailcontainer {
-  height: 400px;
-  overflow: scroll;
-  justify-content: center;
+  height: 370px;
+  display: flex;
+  min-height: min-content;
+
+
+}
+
+#image #thumbnailcontainer ul{
   margin-block-start: 0;
   margin-block-end: 0;
+  padding-inline-start: 0;
   list-style: none;
+  overflow: scroll;
 }
 
 #image .imagelist {
@@ -61,37 +66,62 @@ div#favorites {
   position: absolute;
   right: 2%;
   top: 3%;
-}
-
-div#favorites .svg-inline--fa {
   background: #fff;
   border-radius: 50%;
   padding: 10px;
 }
 
-div.nav-prev, div.nav-next{
-  position: absolute;
-  top: 50%;
+.favorites-icon {
+  background-image: url(https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/Icons/heart.svg);
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
 }
 
-div.nav-prev {
+.nav-prev-icon {
+  background-image: url(https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/Icons/chevron-left.svg);
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-position-x: 2px;
+}
+
+.nav-next-icon {
+  background-image: url(https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/Icons/chevron-right.svg);
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-position-x: 5px;
+}
+
+.nav-prev {
+  position: absolute;
   left: 5%;
   background: #fff;
   border-radius: 50%;
   text-align: center;
-  padding: 12px 16px;
+  padding: 12px 12px;
 }
 
-div.nav-next {
+.nav-next {
+  position: absolute;
   right: 5%;
   background: #fff;
   border-radius: 50%;
   text-align: center;
-  padding: 12px 16px;
+  padding: 12px 12px;
 }
 
 .nav-prev, .nav-next, #favorites, .imagelist img {
   cursor: pointer;
+}
+
+.nav-prev img, .nav-next img, #favorites img {
+  display: absolute;
+  top: 50%;
+  right: 50%;
+  min-width: 20px;
+  min-height: 20px;
 }
 
 div.nav-prev, div.nav-next {
@@ -100,6 +130,8 @@ div.nav-prev, div.nav-next {
   box-shadow: 3px 5px 28px 0px rgba(0,0,0,0.22);
   opacity: 1;
   transition: box-shadow 500ms;
+  position: absolute;
+  top: 50%;
 }
 
 div.nav-prev:hover, div.nav-next:hover {
@@ -116,10 +148,11 @@ div.nav-prev:hover, div.nav-next:hover {
   height:100%;
   top: 0;
   left: 0;
-  background-color: rgba(63, 63, 63, 0.9);
+  background-color: rgba(63, 63, 63, 0.98);
 }
 
 .modal {
+  position: relative;
   border-radius: 5px;
   width: 76%;
   margin: 0px auto;
@@ -128,24 +161,42 @@ div.nav-prev:hover, div.nav-next:hover {
   overflow: hidden;
 }
 
+#close-container {
+  position: absolute;
+  right: 0%;
+  top: 5%;
+}
+
+#modal-content {
+ border-radius: 5px;
+  width: 76%;
+  margin: 0px auto;
+  display: flex;
+  overflow: hidden;
+  text-align: center;
+  align-items: center;
+}
+
 #pop-up {
   max-width: 100%;
   max-height: 100%;
   width: 85%;
   height: 60%;
   cursor: zoom-in;
-  padding: 10% 0;
   position: relative;
 }
 
 #popup-main-overlay {
   position: relative;
+  overflow: hidden;
+  align-items: center;
 }
 
 #popup-main-overlay img{
   max-width: 100%;
-  height: auto;
+  max-height: 800px;
   justify-items: center;
+  overflow: hidden;
 }
 
 #pop-up-image-list-container {
@@ -164,6 +215,7 @@ div.nav-prev:hover, div.nav-next:hover {
   padding-inline-start: 0;
   list-style: none;
   justify-content: center;
+  overflow: scroll;
 }
 
 .imagelist {
@@ -186,7 +238,7 @@ div.nav-prev:hover, div.nav-next:hover {
 }
 
 
-img.zoom {
+#popup-main-overlay .zoom {
   padding: 50px;
   margin: 0 auto;
   cursor: zoom-out;
@@ -194,7 +246,7 @@ img.zoom {
   transition: transform .5s ease-in-out;
 }
 
-img.zoom:hover {
+#popup-main-overlay .zoom:hover {
   transform: scale(1.5);
 }
 
