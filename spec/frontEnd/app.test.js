@@ -16,14 +16,14 @@ const sampleProduct = {
   7: "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy8.jpg"
 }
 
-jest.mock('../../client/src/app.jsx', () => 'ImageService');
+// jest.mock('../../client/src/app.jsx', () => 'ImageService');
 
 describe ('App Component', () => {
 
   //before each
 
   it('App Component should render without props', (done) => {
-  const component = shallow(<App/>);
+    const component = shallow(<App/>);
     expect(component).toMatchSnapshot();
     done();
   });

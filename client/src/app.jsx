@@ -149,18 +149,18 @@ class App extends React.Component {
 
   render() {
     return (
-      <div id='normal'>
-        <ImageView
-          images={this.state.imageThumbnailList}
-          mainImage={this.state.mainImage.url}
-          isZoomed={this.state.zoom}
-          isExpanded={this.state.expand}
-          arrowClick={this.handleClickOnArrow}
-          thumbnailClick={this.handleClickOnThumbnail}
-          toggleExpand={this.toggleExpand}
-          toggleZoom={this.toggleZoom}
-        />
-      </div>
+
+      <ImageView
+        images={this.state.imageThumbnailList}
+        mainImage={this.state.mainImage.url}
+        isZoomed={this.state.zoom}
+        isExpanded={this.state.expand}
+        arrowClick={this.handleClickOnArrow}
+        thumbnailClick={this.handleClickOnThumbnail}
+        toggleExpand={this.toggleExpand}
+        toggleZoom={this.toggleZoom}
+      />
+
     );
   }
 }
