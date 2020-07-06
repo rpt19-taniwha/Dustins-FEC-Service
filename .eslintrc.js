@@ -6,7 +6,8 @@ module.exports = {
 
   },
   overrides: [{
-    excludedFiles: ["./dist/bundle.js", "./database/sample_products.js"],
+    excludedFiles: ["./dist/bundle.js", "./database/sample_products.js", "./node_modules/**"],
+    files: "*.j*",
     rules: {
       quotes: ["error", "single"]
     }

@@ -1,6 +1,9 @@
 ## NPM##
 node_modules/
 
+##build
+client/dist/
+
 
 ## API keys ##
 
