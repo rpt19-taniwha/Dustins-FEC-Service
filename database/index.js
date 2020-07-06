@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/Images', {useNewUrlParser: true, useUnifiedTopology: true});
+const url = 'mongodb+srv://root:rE9EvYIQe91rR9mt@cluster0-o5gfo.mongodb.net/Images?retryWrites=true&w=majority';
+
+mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, () => {
+// console.log('mongoose is connected');
+});
 
 const db = mongoose.connection;
 
@@ -14,7 +18,7 @@ var imageSchema = new mongoose.Schema({
 
 var Image = mongoose.model('Image', imageSchema);
 
-db.on('error', console.error.bind(console, 'connection error:'));
+// db.on('error', console.error.bind(console, 'connection error:'));
 
 const productQuery = (object, callback) => {
   Image.findOne(object, (err, product) => {

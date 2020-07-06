@@ -1,25 +1,31 @@
-h1 {
-  color: brown;
-}
 
-#app {
-  background-color: ivory;
-}
 
-#imageviewcontainer {
+#image #imageviewcontainer {
   display: flex;
+  justify-content: start;
+  flex: 1;
 }
 
+#image #mainimagecontainer {
+  position: relative;
 
-#mainimage {
-  position: absolute;
-  width: 100%;
-  max-width: 100%;
+}
+
+#image #mainimagebackground {
+  width: auto;
+}
+
+#image #mainimage {
+  max-height: 370px;
+  justify-items: center;
   border-radius: 4px;
-  border: 1px solid black;
+}
 
-
-
+#image #cursor-styling {
+  cursor: nesw-resize;
+  border-radius: 4px;
+  background-color: white;
+  padding: 10px, 10px;
 }
 
 #mainimagecontainer {
@@ -30,76 +36,232 @@ h1 {
   flex: 6 1 0%;
   overflow: hidden;
 }
-ul#thumbnailcontainer {
-  list-style:none;
-  padding-left: 0;
-  margin-block-start: 0;
-  justify-content: flex-start;
+
+#image #thumbnailcontainer {
+  height: 370px;
+  display: flex;
+  min-height: min-content;
 }
 
-li.imagelist {
+
+#image #thumbnailcontainer ul{
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
+  list-style: none;
+  overflow: scroll;
+}
+
+#image .imagelist {
   width: 75px;
   height: 75px;
   position: relative;
   overflow: hidden;
   margin-bottom: 6px;
   margin-right: 6px;
-  border: 2px solid black;
   border-radius: 4px;
 }
 
-li.imagelist img {
-  width: auto;
-  height: 100%;
+#image .imagelist img {
+  opacity: .6;
+}
+
+#image .imagelist img:hover {
+  opacity: 1;
+}
+
+div#favorites {
+  position: absolute;
+  right: 2%;
+  top: 3%;
+  background: #fff;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.favorites-icon {
+  background-image: url(https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/Icons/heart.svg);
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+}
+
+.nav-prev-icon {
+  background-image: url(https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/Icons/chevron-left.svg);
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-position-x: 2px;
+}
+
+.nav-next-icon {
+  background-image: url(https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/Icons/chevron-right.svg);
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-position-x: 5px;
+}
+
+.nav-prev {
+  position: absolute;
+  left: 5%;
+  background: #fff;
+  border-radius: 50%;
+  text-align: center;
+  padding: 12px 12px;
+}
+
+.nav-next {
+  position: absolute;
+  right: 5%;
+  background: #fff;
+  border-radius: 50%;
+  text-align: center;
+  padding: 12px 12px;
+}
+
+.nav-prev, .nav-next, #favorites, .imagelist img {
+  cursor: pointer;
+}
+
+.nav-prev img, .nav-next img, #favorites img {
+  display: absolute;
+  top: 50%;
+  right: 50%;
+  min-width: 20px;
+  min-height: 20px;
+}
+
+div.nav-prev, div.nav-next {
+  -webkit-box-shadow: 3px 5px 28px 0px rgba(0,0,0,0.22);
+  -moz-box-shadow: 3px 5px 28px 0px rgba(0,0,0,0.22);
+  box-shadow: 3px 5px 28px 0px rgba(0,0,0,0.22);
+  opacity: 1;
+  transition: box-shadow 500ms;
+  position: absolute;
+  top: 50%;
+}
+
+div.nav-prev:hover, div.nav-next:hover {
+  -webkit-box-shadow: 3px 5px 42px 0px rgba(0,0,0,0.40);
+  -moz-box-shadow: 3px 5px 42px 0px rgba(0,0,0,0.40);
+  box-shadow: 3px 5px 42px 0px rgba(0,0,0,0.40);
+  transform: scale(1.05);
+  transition: ease-in-out .25s;
+}
+
+#expanded-overlay.overlay {
+  position: fixed;
+  width:100%;
+  height:100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(63, 63, 63, 0.98);
+}
+
+.modal {
+  position: relative;
+  border-radius: 5px;
+  width: 76%;
+  margin: 0px auto;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+#close-container {
+  position: absolute;
+  right: 0%;
+  top: 5%;
+}
+
+#modal-content {
+ border-radius: 5px;
+  width: 76%;
+  margin: 0px auto;
+  display: flex;
+  overflow: hidden;
+  text-align: center;
+  align-items: center;
+}
+
+#pop-up {
   max-width: 100%;
+  max-height: 100%;
+  width: 85%;
+  height: 60%;
+  cursor: zoom-in;
+  position: relative;
+}
+
+#popup-main-overlay {
+  position: relative;
+  overflow: hidden;
+  align-items: center;
+}
+
+#popup-main-overlay img{
+  max-width: 100%;
+  max-height: 800px;
+  justify-items: center;
+  overflow: hidden;
+}
+
+#pop-up-image-list-container {
+  flex-direction: column;
+  max-height: 100%;
+  margin: 0 auto;
+  align-items: center;
+}
+
+#li img {
+  width: 100px;
+  height: 100px;
+}
+#pop-up-image-list {
+  margin-block-start: 0;
+  padding-inline-start: 0;
+  list-style: none;
+  justify-content: center;
+  overflow: scroll;
+}
+
+.imagelist {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 6px;
+  margin-right: 6px;
+  border-radius: 4px;
+}
+
+.imagelist img {
+  width: 150px;
+  height: auto;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-#favorites {
-  position:absolute;
-  right: 2%;
-  top: 3%;
 
-
+#popup-main-overlay .zoom {
+  padding: 50px;
+  margin: 0 auto;
+  cursor: zoom-out;
+  overflow: hidden;
+  transition: transform .5s ease-in-out;
 }
 
-#favorites .svg-inline--fa {
-  background: #fff;
+#popup-main-overlay .zoom:hover {
+  transform: scale(1.5);
+}
+
+.modal-close {
+  position: absolute;
+  background-color: white;
   border-radius: 50%;
-  padding: 10px;
+  padding: 10px 14px;
+  right: 0;
 }
-
-
-
-.nav-prev, .nav-next{
-  position:absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.nav-prev {
-  left: 5%;
-  background: #fff;
-    border-radius: 50%;
-    text-align: center;
-    padding: 12px 16px;
-}
-
-.nav-next {
-  right: 5%;
-  background: #fff;
-    border-radius: 50%;
-    text-align: center;
-    padding: 12px 16px;
-}
-
-/* .nav-prev .svg-inline--fa, .nav-next .svg-inline--fa{
-
-  background: #fff;
-  border-radius: 50%;
-  padding: 12px 14px 12px 16px;
-
-} */

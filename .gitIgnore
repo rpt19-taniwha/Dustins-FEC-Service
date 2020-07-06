@@ -7,8 +7,13 @@ client/dist/
 
 ## API keys ##
 
+
+## Webpack ##
+client/dist/bundle.js
 ## ESLINT ##
 .eslintrc.js
 
 ## Test Coverage Files ##
 spec/coverage/
+spec/frontEnd/coverage/
+spec/frontEnd/__snapshots__/
