@@ -28,13 +28,21 @@
   padding: 10px, 10px;
 }
 
+#mainimagecontainer {
+  margin-bottom: 6px;
+  margin-right: 6px;
+  position: relative;
+  width: 100%;
+  flex: 6 1 0%;
+  overflow: hidden;
+}
+
 #image #thumbnailcontainer {
   height: 370px;
   display: flex;
   min-height: min-content;
-
-
 }
+
 
 #image #thumbnailcontainer ul{
   margin-block-start: 0;

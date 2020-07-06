@@ -5,7 +5,7 @@ const ImageThumbnail = ({ image, thumbnailClick, index }) => {
     <Fragment>
       <img
         src={image}
-        onClick={(e) => { thumbnailClick(e.target, index) }}
+        onClick={(e) => { thumbnailClick(e.target, index); }}
       />
     </Fragment>
   );

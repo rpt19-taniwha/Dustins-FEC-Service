@@ -10,12 +10,12 @@ class App extends React.Component {
     super(props);
     this.state = {
       productNumber: 549504785,
-      imageList: ["https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy1.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy2.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy3.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy4.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy5.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy6.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy7.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy8.jpg"
-    ],
-      imageThumbnailList: ["https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SamplePhotosThumbnail/pokenatomy1.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SamplePhotosThumbnail/pokenatomy2.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SamplePhotosThumbnail/pokenatomy3.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SamplePhotosThumbnail/pokenatomy4.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SamplePhotosThumbnail/pokenatomy5.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SamplePhotosThumbnail/pokenatomy6.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SamplePhotosThumbnail/pokenatomy7.jpg", "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SamplePhotosThumbnail/pokenatomy8.jpg"
-    ],
+      imageList: ['https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy1.jpg', 'https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy2.jpg', 'https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy3.jpg', 'https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy4.jpg', 'https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy5.jpg', 'https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy6.jpg', 'https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy7.jpg', 'https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy8.jpg'
+      ],
+      imageThumbnailList: ['https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SamplePhotosThumbnail/pokenatomy1.jpg', 'https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SamplePhotosThumbnail/pokenatomy2.jpg', 'https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SamplePhotosThumbnail/pokenatomy3.jpg', 'https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SamplePhotosThumbnail/pokenatomy4.jpg', 'https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SamplePhotosThumbnail/pokenatomy5.jpg', 'https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SamplePhotosThumbnail/pokenatomy6.jpg', 'https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SamplePhotosThumbnail/pokenatomy7.jpg', 'https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SamplePhotosThumbnail/pokenatomy8.jpg'
+      ],
       mainImage: {
-        url: "https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy1.jpg",
+        url: 'https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy1.jpg',
         index: 0
       },
       zoom: false,
@@ -31,13 +31,13 @@ class App extends React.Component {
 
   componentDidMount() {
     const productId = window.location.pathname.split('/')[2] || this.state.productNumber;
-      this.setState(({productNumber: productId}), () => {
-        this.getUrls(this.state.productNumber);
-      });
-    }
+    this.setState(({productNumber: productId}), () => {
+      this.getUrls(this.state.productNumber);
+    });
+  }
 
   // request for deployed service on aws
-   getUrls(productNumber) {
+  getUrls(productNumber) {
     $.ajax(`http://ec2-50-18-28-6.us-west-1.compute.amazonaws.com:8000/product/${productNumber}`, {
       success: (imageObj) => {
         const parsedObj = JSON.parse(imageObj);
@@ -130,20 +130,20 @@ class App extends React.Component {
 
   toggleExpand() {
     this.state.expand
-    ? this.setState({expand: false}, () => {
-      document.body.style.overflow = 'visible'
-    })
-    : this.setState({expand: true}, () => {
-      document.body.style.overflow = 'hidden';
-    });
+      ? this.setState({expand: false}, () => {
+        document.body.style.overflow = 'visible';
+      })
+      : this.setState({expand: true}, () => {
+        document.body.style.overflow = 'hidden';
+      });
   }
 
   toggleZoom(target) {
     !this.state.zoom
-    ? (target.classList.add('zoom'), this.setState({zoom: true}))
-    : this.setState({zoom: false}, () => {
-      target.classList.remove('zoom');
-    });
+      ? (target.classList.add('zoom'), this.setState({zoom: true}))
+      : this.setState({zoom: false}, () => {
+        target.classList.remove('zoom');
+      });
   }
 
 

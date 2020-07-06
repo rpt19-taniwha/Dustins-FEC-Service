@@ -27,6 +27,10 @@ app.get('/listing/:productNumber', (req, res) => {
 
 app.get('/product/:productNumber', (req, res) => {
   const id = req.params['productNumber'];
+<<<<<<< HEAD
+
+=======
+>>>>>>> b0392d1542862a3e607123ff74bc067309505852
   productQuery({'productNumber': id.toString()}, (err, product) => {
     if (err) {
       throw err;
@@ -40,7 +44,7 @@ app.get('/product/:productNumber', (req, res) => {
 
 app.get('/mainImage/:productNumber', (req, res) => {
   const id = req.params['productNumber'];
-  productQuery({'productNumber': id.toString}, (err, product) => {
+  productQuery({'productNumber': id.toString()}, (err, product) => {
     if (err) {
       throw err;
     } else {
