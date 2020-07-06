@@ -19,10 +19,10 @@ const MainImage = ({ images, mainImage, isZoomed, isExpanded, arrowClick, thumbn
               />
             </div>
             <div className='nav-prev' onClick={(e) => { arrowClick(e.currentTarget); }} >
-              <div class='nav-prev-icon'></div>
+              <div className='nav-prev-icon'></div>
             </div>
             <div className='nav-next' onClick={(e) => { arrowClick(e.currentTarget); }} >
-              <div class='nav-next-icon'></div>
+              <div className='nav-next-icon'></div>
             </div>
           </div >
           <div id='pop-up-image-list-container'>
@@ -32,7 +32,6 @@ const MainImage = ({ images, mainImage, isZoomed, isExpanded, arrowClick, thumbn
                 thumbnailClick={thumbnailClick}
               />
             </ul>
-
           </div>
         </Modal>
       </Fragment>
@@ -52,10 +51,10 @@ const MainImage = ({ images, mainImage, isZoomed, isExpanded, arrowClick, thumbn
           <div className='favorites-icon'></div>
         </div>
         <div className='nav-prev' onClick={(e) => { arrowClick(e.currentTarget); }} >
-          <div class='nav-prev-icon'></div>
+          <div className='nav-prev-icon'></div>
         </div>
         <div className='nav-next' onClick={(e) => { arrowClick(e.currentTarget); }} >
-          <div class='nav-next-icon'></div>
+          <div className='nav-next-icon'></div>
         </div>
       </div>
       {popUp(isExpanded)}
