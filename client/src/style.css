@@ -32,8 +32,6 @@
   margin-bottom: 6px;
   margin-right: 6px;
   position: relative;
-  width: 100%;
-  flex: 6 1 0%;
   overflow: hidden;
 }
 
@@ -142,7 +140,7 @@ div.nav-prev, div.nav-next {
   top: 50%;
 }
 
-div.nav-prev:hover, div.nav-next:hover {
+div.nav-prev:hover, div.nav-next:hover, #favorites:hover {
   -webkit-box-shadow: 3px 5px 42px 0px rgba(0,0,0,0.40);
   -moz-box-shadow: 3px 5px 42px 0px rgba(0,0,0,0.40);
   box-shadow: 3px 5px 42px 0px rgba(0,0,0,0.40);
