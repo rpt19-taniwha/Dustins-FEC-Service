@@ -10,7 +10,7 @@ const port = process.env.Port || 8000;
 // from localhost
 // const port = process.env.Port || 8001;
 
-const rootPath = path.join(__dirname, '..', 'client/dist/')
+const rootPath = path.join(__dirname, '..', 'client/dist/');
 
 app.use(cors());
 app.use(compression());
@@ -27,10 +27,6 @@ app.get('/listing/:productNumber', (req, res) => {
 
 app.get('/product/:productNumber', (req, res) => {
   const id = req.params['productNumber'];
-<<<<<<< HEAD
-
-=======
->>>>>>> b0392d1542862a3e607123ff74bc067309505852
   productQuery({'productNumber': id.toString()}, (err, product) => {
     if (err) {
       throw err;
