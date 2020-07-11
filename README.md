@@ -1,8 +1,10 @@
 # Dustins-FEC-Service
 Service Repo For FEC
 # Project Name
+ - [Image Service Display](./FEC.png)
+ - [Image Service Zoom Display](./FEC/png)
+ - [Tour the Service](https://www.loom.com/share/8922a8a8fbef4d4fa38b297e554d75ea)
 
-> Project description
 
 ## Related Projects
   - https://github.com/rpt19-taniwha/Dustins-FEC-proxy
