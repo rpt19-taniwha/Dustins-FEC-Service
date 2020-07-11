@@ -7,18 +7,17 @@ Service Repo For FEC
 
 
 ## Related Projects
-  - https://github.com/rpt19-taniwha/Dustins-FEC-proxy
-  - https://github.com/rpt19-taniwha/iris-fec-service
-  - https://github.com/rpt19-taniwha/andy-service
-  - https://github.com/rpt19-taniwha/Dustins-FEC-Service
-  - https://github.com/rpt19-taniwha/mervin-fec-service
+  - [Proxy](https://github.com/rpt19-taniwha/Dustins-FEC-proxy)
+  - [reviews](https://github.com/rpt19-taniwha/iris-fec-service)
+  - [You May Also Like](https://github.com/rpt19-taniwha/andy-service)
+  - [Product](https://github.com/rpt19-taniwha/mervin-fec-service)
 
 ## Table of Contents
 
 1. [Usage](#Usage)
 2. [Requirements](#requirements)
 3. [Development](#development)
-4. [Production] (#production)
+4. [Production](#production)
 
 ## Usage
 
