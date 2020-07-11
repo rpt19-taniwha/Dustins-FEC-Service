@@ -8,7 +8,7 @@ Service Repo For FEC
 ## Related Projects
   - [Proxy](https://github.com/rpt19-taniwha/Dustins-FEC-proxy)
   - [reviews](https://github.com/rpt19-taniwha/iris-fec-service)
-  - [You May Also Like](https://github.com/rpt19-taniwha/andy-service)
+  - [You May Also Like](https://github.com/rpt19-taniwha/andy-fec-service)
   - [Product](https://github.com/rpt19-taniwha/mervin-fec-service)
 
 ## Table of Contents
@@ -52,32 +52,28 @@ Service Repo For FEC
 
 
 ## Development
-  Database:
-    To seed a local Mongo Database (optional)
-    -- it currently runs on Mongo Atlas so seeding a local database is unnecessary
-    -- by commenting out the url to the cloud database (line 45) and uncommenting the url to the local database (line 47) you will be able to see your local database
+  * Database:
+    - To seed a local Mongo Database (optional)
+      - it currently runs on Mongo Atlas so seeding a local database is unnecessary
+      - by commenting out the url to the cloud database (line 45) and uncommenting the url to the local database (line 47) you will be able to see your local database
 
-    Note: If you want to run a local MongoDB instance and have not installed it globally, find the instructions: https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/
-    - once installed type mongo into the cli inside dustins-fec-service-folder
-    - no username and password is necessary unless you choose to make one
+      - Note: If you want to run a local MongoDB instance and have not installed it globally, find the instructions: https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/
+      - once installed type mongo into the cli inside dustins-fec-service-folder
+      - no username and password is necessary unless you choose to make on
 
+  * npm run server-dev:  runs the server
+  * npm run build-dev: build the webpack bundle
+    - it is currently set to run in production mode so to develop:
+      - in server/index.js comment out the aws port on line 8 and  uncomment the localhost port on line 11
+      - in client/src/app.jsx comment out the getUrls method on line 40 through 56 which is tailored for requests from the deployed service
+      - uncomment the getUrls method which is tailored to developing on the local host:  lines 61 - 77.
 
-
-  npm run server-dev
-  npm run build-dev
-   - it is currently set to run in production mode so to develop:
-    - in server/index.js comment out the aws port on line 8 and  uncomment the localhost port on line 11
-    - in client/src/app.jsx comment out the getUrls method on line 40 through 56 which is tailored for requests from the deployed service
-    - uncomment the getUrls method which is tailored to developing on the local host:  lines 61 - 77.
-
-  npm run test while doing testing with jest.
+  * npm run test:  runs the jest test suite.
 
 
 ## Production
-  -- no database setup is necessary but for the optional instructions to set up your database locally see the ## Development header
-
-  -- npm run server-prod
-  -- npm run build-prod
+  - npm run server-prod: runs the server in production mode
+  - npm run build-prod: creates the webpack bundle suitable to production
 
 
 
