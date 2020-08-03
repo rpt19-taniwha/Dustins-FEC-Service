@@ -69,5 +69,3 @@ test(`makes database call to retrieve Pokenatomy pictures when ${sampleProductId
     }
   });
 });
-
-//db seed insertion testing
