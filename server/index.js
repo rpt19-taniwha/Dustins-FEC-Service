@@ -45,13 +45,10 @@ app.get('/mainImage/:productNumber', (req, res) => {
       throw err;
     } else {
       const mainImageThumbnail = product._doc.imageThumbnailUrls[0];
-
       res.end(mainImageThumbnail);
     }
   });
 });
 
 
-app.listen(port, () => {
-  // console.log(`App is listening on port: ${port}`);
-});
+app.listen(port, () => { console.log(`App is listening on port: ${port}`); });

@@ -21,7 +21,7 @@ module.exports = {
       coverageDirectory: './spec',
       testMatch: ['**/spec/frontEnd/**.test.js?(x)'],
       moduleNameMapper: {
-        "\\.(css|less|scss|sss|styl)$": "<rootDir>/node_modules/jest-css-modules"
+        '\\.(css|less|scss|sss|styl)$': '<rootDir>/node_modules/jest-css-modules'
       },
 
     },
