@@ -8,7 +8,7 @@ module.exports = {
     {
       displayName: 'backEnd',
       testEnvironment: 'node',
-      collectCoverageFrom:['spec/*.test.node.js'],
+      collectCoverageFrom: ['spec/*.test.node.js'],
       testMatch: [
         '**/spec/**.test.node.js',
       ],
@@ -17,7 +17,7 @@ module.exports = {
     {
       displayName: 'frontEnd',
       testEnvironment: 'jsdom',
-      collectCoverageFrom:['spec/frontEnd/*.test.jsx'],
+      collectCoverageFrom: ['spec/frontEnd/*.test.jsx'],
       coverageDirectory: './spec',
       testMatch: ['**/spec/frontEnd/**.test.js?(x)'],
       moduleNameMapper: {
