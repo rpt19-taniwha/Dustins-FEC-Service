@@ -16,6 +16,7 @@ const sampleProduct = {
   7: 'https://s3-us-west-1.amazonaws.com/dustins.fec.product.images/SampleProduct/pokenatomy8.jpg'
 };
 
+
 describe ('App Component', () => {
 
   it('App Component should render without props', (done) => {
